@@ -10,6 +10,8 @@ import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import CreateEpisode from "./pages/CreateEpisode/CreateEpisode";
+import Episode from "./pages/Episode/Episode";
+
 
 function App() {
   return (
@@ -23,7 +25,8 @@ function App() {
         <Route path="/signup" element={ <IsAnon> <SignupPage /> </IsAnon>}/>
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
         <Route path="/createEpisode" element={<CreateEpisode></CreateEpisode>}/>
-        <Route path="*" element={<NotFoundPage></NotFoundPage>} />
+        <Route path="/episode" element={<Episode></Episode>}/>
+        <Route path="*" element={<NotFoundPage></NotFoundPage>} /> 
       </Routes>
     </div>
   );
