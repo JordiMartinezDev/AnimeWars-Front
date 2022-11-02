@@ -24,8 +24,8 @@ function App() {
         <Route path="/profile" element={ <IsPrivate> <ProfilePage /> </IsPrivate>} />
         <Route path="/signup" element={ <IsAnon> <SignupPage /> </IsAnon>}/>
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
-        <Route path="*" element={<NotFoundPage></NotFoundPage>} />
         <Route path="/createEpisode" element={<CreateEpisode></CreateEpisode>}/>
+        <Route path="*" element={<NotFoundPage></NotFoundPage>} />
 
       </Routes>
     </div>
