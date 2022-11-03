@@ -39,9 +39,9 @@ $ npm start
 | /createdSeries | Private  | CreatedSeries    |
 | /createdEpisodes | Private  | CreatedEpisodes|
 | /seeMySerieLst/:userId | Private  | SeeMyAnimeLst   |
-| /seeMyEpisodeLst/:userId | Private  | SeeMyAnimeLst   |
+| /seeMyEpisodeLst/:userId | Private  | SeeMyEpisodeLst   |
 |/seeMyFollowedSeries/:userId|Private| seeMyAnimeFollowed|
-|/editProfileImg/:userId|Private| seeMyAnimeFollowed|
+|/editProfileImg/:userId|Private| editProfileImg|
 |/episode/:episodeId|Public|Episode|
 
 
