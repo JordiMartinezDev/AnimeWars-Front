@@ -1,4 +1,4 @@
-# Portafolio-front
+# AnimeWars
 
 ## AnimeWars
 Developed as the final project of my web development bootcamp at Ironhack Barcelona. It's a MERN Stack application, check the back repository here<link>
@@ -30,12 +30,29 @@ $ npm start
 
 | Route  | Privacy | Renders |
 | ------------- |:-------------:|:-------------:|
-| left foo      | right foo     | right foo     |
-| left bar      | right bar     | right bar     |
-| left baz      | right baz     | right baz     |
+| /      | Public     | HomePage    |
+| /profile/userId     | Private     |ProfilePage    |
+| /signup     | Public    | SignupPage        |
+| /login       | Public    |  LoginPage       |
+| /createEpisode |  Public |   CreateEpisode  |
+| /followedSeries/:userId| Public  | FollowedSeries   |
+| /createdSeries | Private  | CreatedSeries    |
+| /createdEpisodes | Private  | CreatedEpisodes|
+| /seeMySerieLst/:userId | Private  | SeeMyAnimeLst   |
+| /seeMyEpisodeLst/:userId | Private  | SeeMyAnimeLst   |
+|/seeMyFollowedSeries/:userId|Private| seeMyAnimeFollowed|
+|/editProfileImg/:userId|Private| seeMyAnimeFollowed|
+|/episode/:episodeId|Public|Episode|
+
+
 
 ## Components
-* Item 1
+* Navbar
+* ProfileAnimeCreatedBox ----> Bloque fijo de animes renderizado en Profile
+* ProfileFavoriteBox ----> Bloque fijo de animes renderizado en Profile
+* ShowAnime ----> Reciclamos codigo Ex: Index page
+* ShowEpisodes 
+ 
 
 
 
