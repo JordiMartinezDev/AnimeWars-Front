@@ -44,10 +44,15 @@ function Navbar() {
     //     </>
     //   )}
     // </nav>
-    <nav className="navbar navbar-expand-lg navbar-darkt bg-dark">
+
+
+  <nav className="navbar navbar-expand-lg navbar-darkt bg-dark">
   <div className="container-fluid">
-    <a className="text-danger navbar-brand" href="#">
-    <Link class="link" to="/">AnimeWars</Link></a>
+    
+    <a className="text-danger navbar-brand">
+    <Link className="link" to="/">AnimeWars</Link>
+    </a>
+
     <button className="text-white navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span className="text-white navbar-toggler-icon"></span>
     </button>
@@ -65,7 +70,16 @@ function Navbar() {
           </a>
           <ul className="text-white bg-dark dropdown-menu" aria-labelledby="navbarScrollingDropdown">
             <li><a className="text-white bg-dark dropdown-item" href="#">Action</a></li>
-            <li><a className="text-white bg-dark dropdown-item" href="#">Another action</a></li>
+            <li><a className="text-white bg-dark dropdown-item" href="#">Adventure</a></li>
+            <li><a className="text-white bg-dark dropdown-item" href="#">Comedy</a></li>
+            <li><a className="text-white bg-dark dropdown-item" href="#">Drama</a></li>
+            <li><a className="text-white bg-dark dropdown-item" href="#">Fantasy</a></li>
+            <li><a className="text-white bg-dark dropdown-item" href="#">Music</a></li>
+            <li><a className="text-white bg-dark dropdown-item" href="#">Mystery</a></li>
+            <li><a className="text-white bg-dark dropdown-item" href="#">Romance</a></li>
+            <li><a className="text-white bg-dark dropdown-item" href="#">Sci-Fi</a></li>
+            <li><a className="text-white bg-dark dropdown-item" href="#">Slice of Life</a></li>
+            <li><a className="text-white bg-dark dropdown-item" href="#">Sports</a></li>
             <li><hr className="text-white bg-dark dropdown-divider"/></li>
             <li><a className="text-white bg-dark dropdown-item" href="#">Something else here</a></li>
           </ul>
