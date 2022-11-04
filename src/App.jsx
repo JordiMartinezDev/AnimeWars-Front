@@ -15,6 +15,7 @@ import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import Loading from "./components/Loading/Loading";
 import CreateEpisode from "./pages/CreateEpisode/CreateEpisode";
+import CreateAnime from "./pages/CreateAnime/CreateAnime";
 
 
 function App() {
@@ -29,7 +30,8 @@ function App() {
         <Route path="/signup" element={ <IsAnon> <SignupPage /> </IsAnon>}/>
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
         <Route path="/createEpisode/:userId" element={<CreateEpisode></CreateEpisode>}/>
-        <Route path="/editProfileImg/:userId" element={<EditProfileImg></EditProfileImg>}/> 
+        <Route path="/editProfileImg/:userId" element={<EditProfileImg></EditProfileImg>} /> 
+        <Route path="/createAnime/:userId" element={<CreateAnime></CreateAnime>}/>
         <Route path="/*" element={<NotFoundPage></NotFoundPage>} />
 
       </Routes>

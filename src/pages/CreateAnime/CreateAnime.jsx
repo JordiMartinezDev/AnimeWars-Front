@@ -7,7 +7,7 @@ import validator from 'validator'
 
 
 
-function CreateEpisode() {
+function CreateAnime() {
     const[name, setName]= useState("");
     const [category, setCategory] = useState("");
     const [animeUrl, setAnimeUrl] = useState("");
@@ -55,10 +55,10 @@ function CreateEpisode() {
             
             const newAnime = {
                 name: name,
-                category: category,
-                animeUrl: "",
-                description: episodeImage,
-                
+                number: episodes,
+                episodeImg: episodeImage,
+                isPremium: false,
+                episodeUrl: animeUrl,
             };
             animeAPI.addAnime(newAnime)
                 .then(results => {
@@ -97,7 +97,7 @@ function CreateEpisode() {
 
     return (
         <div>
-            <h1> Create Episode Form Page</h1> 
+            <h1> Create Anime </h1> 
             <form onSubmit={submitHandler} action="/createEpisode">
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label" >Anime Name</label>
@@ -139,4 +139,4 @@ function CreateEpisode() {
     )
 }
 
-export default CreateEpisode;
+export default CreateAnime;
