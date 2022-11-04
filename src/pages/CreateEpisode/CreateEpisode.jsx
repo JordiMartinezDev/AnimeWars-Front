@@ -43,30 +43,36 @@ function CreateEpisode() {
 
     function submitHandler(e){
         e.preventDefault();
-        console.log("VALUE IN URL ", animeUrl)
+    
         
         const uploadData = new FormData();
-        uploadData.append("imageUrl",episodeImage);
-
+        uploadData.append("name", name)
+        uploadData.append("number", episodes)
+        uploadData.append("episodeImage",episodeImage)
+        uploadData.append("isPremium", false)
+        uploadData.append("episodeUrl", animeUrl)        
+        
+        console.log(" UPLOADDATA ---> ", uploadData)
         // If anime URL is correct, submit Episode to DB, else... error message
 
         if (validator.isURL(animeUrl)) { 
             setErrorMessage('Valid URL')
             
-            const newAnime = {
-                name: name,
-                category: category,
-                animeUrl: "",
-                description: episodeImage,
+
+            // const newAnime = {
+            //     name: name,
+            //     category: category,
+            //     animeUrl: "",
+            //     description: episodeImage,
                 
-            };
-            animeAPI.addAnime(newAnime)
+            // };
+            animeAPI.addEpisode(uploadData)
                 .then(results => {
                     console.log("aaaaa: ", results)
                     navigate("/");
                 })
                 .catch(err => {
-                    console.log("error: ", err);
+                    console.log("Error CreateEpisode.JSX --> : ", err);
                 })
         }
         else {
@@ -98,7 +104,7 @@ function CreateEpisode() {
     return (
         <div>
             <h1> Create Episode Form Page</h1> 
-            <form onSubmit={submitHandler} action="/createEpisode">
+            <form onSubmit={submitHandler} action="/createEpisode" encType="multipart/form-data">
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label" >Anime Name</label>
                     <input type="text" className="form-control" id="exampleInputEmail1" onChange={handleName} value={name}/>

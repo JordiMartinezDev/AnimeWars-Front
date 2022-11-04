@@ -43,24 +43,22 @@ function CreateAnime() {
 
     function submitHandler(e){
         e.preventDefault();
-        console.log("VALUE IN URL ", animeUrl)
+        
         
         const uploadData = new FormData();
-        uploadData.append("imageUrl",episodeImage);
+        uploadData.append("name", name)
+        uploadData.append("category", category)
+        uploadData.append("animeUrl", false)
+        uploadData.append("description", description)   
+        uploadData.append("animeImage",episodeImage)
 
-        // If anime URL is correct, submit Episode to DB, else... error message
+       
 
         if (validator.isURL(animeUrl)) { 
             setErrorMessage('Valid URL')
             
-            const newAnime = {
-                name: name,
-                number: episodes,
-                episodeImg: episodeImage,
-                isPremium: false,
-                episodeUrl: animeUrl,
-            };
-            animeAPI.addAnime(newAnime)
+            
+            animeAPI.addAnime(uploadData)
                 .then(results => {
                     console.log("aaaaa: ", results)
                     navigate("/");
