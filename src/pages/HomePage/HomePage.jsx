@@ -19,9 +19,6 @@ function HomePage() {
   
   return (
     <div>
-<<<<<<< HEAD
-      <h1>Home pages</h1>
-=======
       <h1>Home asdsds</h1>
 
       
@@ -36,7 +33,6 @@ function HomePage() {
       </div>
       
 
->>>>>>> dev
     </div>
   );
 }
