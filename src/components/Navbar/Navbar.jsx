@@ -2,6 +2,7 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
+import lupa from "../../assets/lupa.png";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
 
@@ -89,8 +90,14 @@ function Navbar() {
         </li>
       </ul>
       <form className="text-white d-flex">
-        <input className="text-white form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="text-white btn btn-outline-success" type="submit">Search</button>
+          <Link className="link" to="/search">
+          <img src={lupa} style={{ width: 50, height: 50}} alt="lupa"/>
+          </Link>
+          <Link className="link" to="/profile">
+          <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" />
+          </Link>
+        {/* <input className="text-white form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button className="text-white btn btn-outline-success" type="submit">Search</button> */}
       </form>
     </div>
   </div>

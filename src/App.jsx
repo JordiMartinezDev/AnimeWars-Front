@@ -14,6 +14,7 @@ import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import CreateEpisode from "./pages/CreateEpisode/CreateEpisode";
 import Episode from "./pages/Episode/Episode";
+import SeeMyAnimeList from "./pages/Anime/SeeMyAnimeList";
 
 
 
@@ -25,13 +26,16 @@ function App() {
       <Routes>
 
         <Route path="/" element={<HomePage />} />
-        <Route path="/profile" element={ <IsPrivate> <ProfilePage /> </IsPrivate>} />
+        <Route path="/profile" element={  <ProfilePage /> } />
         <Route path="/signup" element={ <IsAnon> <SignupPage /> </IsAnon>}/>
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
         <Route path="/createEpisode/:userId" element={<CreateEpisode></CreateEpisode>}/>
         <Route path="/editProfileImg/:userId" element={<EditProfileImg></EditProfileImg>}/> 
         <Route path="/*" element={<NotFoundPage></NotFoundPage>} />
 
+
+        {/*Para probar */} 
+        <Route path="/animeList" element={<SeeMyAnimeList />}/>
       </Routes>
       {/* recordatori de posa Is Private a tot en lo que el redme ho posa */}
     </div>

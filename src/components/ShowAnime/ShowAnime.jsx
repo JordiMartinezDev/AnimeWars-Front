@@ -1,12 +1,12 @@
 import {Link} from 'react-router-dom';
 
-function ShowAnime({anime}) {
+function ShowAnime(props) {
+    const {anime} = props;
+    console.log(anime)
     return (
         <div>
-            <Link to={`/episode/${anime._id}`}>
-                <img src={anime.image} alt={anime.title} />
-                <h2>{anime.title}</h2>
-            </Link>
+            <h1>Show Anime</h1>
+            <h2>{anime}</h2>
         </div>
     );
 }
