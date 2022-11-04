@@ -23,7 +23,7 @@ function App() {
       <Routes>
 
         <Route path="/" element={<HomePage />} />
-        <Route path="/profile" element={  <ProfilePage /> } />
+        <Route path="/profile" element={  <ProfilePage /> } /> 
         <Route path="/signup" element={ <IsAnon> <SignupPage /> </IsAnon>}/>
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
         <Route path="/createEpisode/:userId" element={<CreateEpisode></CreateEpisode>}/>
@@ -41,3 +41,6 @@ function App() {
 }
 
 export default App;
+
+
+//Recodatori que he tret Isprivate de Profile per poder treballari
