@@ -42,13 +42,13 @@ function CreateEpisode() {
     function submitHandler(e){
         e.preventDefault();
         const newAnime = {
-            name,
-            category,
-            animeUrl,
-            description,
-            episodes
+            name: name,
+            number: episodes,
+            episodeImg: "addsfee",
+            isPremium: false,
+            episodeUrl: "",
         };
-        animeAPI.addAnime(newAnime)
+        animeAPI.addEpisode(newAnime)
         .then(results=>{
             console.log("aaaaa: ", results)
             navigate("/");
