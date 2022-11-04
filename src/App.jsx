@@ -2,7 +2,6 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
-
 import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
@@ -13,9 +12,7 @@ import EditProfileImg from "./pages/EditProfileImg";
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
-import Loading from "./components/Loading/Loading";
 import CreateEpisode from "./pages/CreateEpisode/CreateEpisode";
-import CreateAnime from "./pages/CreateAnime/CreateAnime";
 
 
 function App() {
@@ -26,7 +23,7 @@ function App() {
       <Routes>
 
         <Route path="/" element={<HomePage />} />
-        <Route path="/profile" element={ <IsPrivate> <ProfilePage /> </IsPrivate>} />
+        <Route path="/profile" element={  <ProfilePage /> } />
         <Route path="/signup" element={ <IsAnon> <SignupPage /> </IsAnon>}/>
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
         <Route path="/createEpisode/:userId" element={<CreateEpisode></CreateEpisode>}/>
@@ -34,6 +31,9 @@ function App() {
         <Route path="/createAnime/:userId" element={<CreateAnime></CreateAnime>}/>
         <Route path="/*" element={<NotFoundPage></NotFoundPage>} />
 
+
+        {/*Para probar */} 
+        <Route path="/animeList" element={<SeeMyAnimeList />}/>
       </Routes>
       {/* recordatori de posa Is Private a tot en lo que el redme ho posa */}
     </div>

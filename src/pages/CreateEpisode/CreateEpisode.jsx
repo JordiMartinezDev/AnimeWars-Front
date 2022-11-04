@@ -36,6 +36,8 @@ function CreateEpisode() {
         setEpisodes(e.target.value);
 
     }
+
+    
     // const handleFollowers =()=>{
     //     const copiyName = [... name];
 
