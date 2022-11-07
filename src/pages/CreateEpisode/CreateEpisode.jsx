@@ -55,7 +55,7 @@ function CreateEpisode() {
         console.log(" UPLOADDATA ---> ", uploadData)
         // If anime URL is correct, submit Episode to DB, else... error message
 
-        if (validator.isURL(animeUrl)) { 
+        if (Validator.isURL(animeUrl)) { 
             setErrorMessage('Valid URL')
             
 
