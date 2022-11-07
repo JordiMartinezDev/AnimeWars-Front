@@ -12,7 +12,7 @@ function CreateAnime() {
     const [category, setCategory] = useState("");
     const [animeUrl, setAnimeUrl] = useState("");
     const [description, setDesccription] = useState("");
-    const [episodes, setEpisodes] = useState([{}]);
+    // const [episodes, setEpisodes] = useState([{}]);
     const [episodeImage, setEpisodeImage] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
     // const [followedUsers, setFollowedUser]=useState([{}]);
@@ -25,17 +25,17 @@ function CreateAnime() {
         setCategory(e.target.value);
 
     }
-    const handlAnimeUrl = (e) => {
-        setAnimeUrl(e.target.value)
-    }
+    // const handlAnimeUrl = (e) => {
+    //     setAnimeUrl(e.target.value)
+    // }
     const handleDescription =(e)=>{
         setDesccription(e.target.value);
 
     }
-    const handleEpisodes =(e)=>{
-        setEpisodes(e.target.value);
+    // const handleEpisodes =(e)=>{
+    //     setEpisodes(e.target.value);
 
-    }
+    // }
     // const handleFollowers =()=>{
     //     const copiyName = [... name];
 
@@ -48,7 +48,7 @@ function CreateAnime() {
         const uploadData = new FormData();
         uploadData.append("name", name)
         uploadData.append("category", category)
-        uploadData.append("animeUrl", false)
+        // uploadData.append("animeUrl", false)
         uploadData.append("description", description)   
         uploadData.append("animeImage",episodeImage)
 
@@ -101,23 +101,23 @@ function CreateAnime() {
                     <label htmlFor="exampleInputPassword1" className="form-label" >Anime Name</label>
                     <input type="text" className="form-control" id="exampleInputEmail1" onChange={handleName} value={name}/>
                 </div>
-                <div className="mb-3">
+                {/* <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Link</label>
                     <input type="text" className="form-control" id="exampleInputEmail1" onChange={handlAnimeUrl} value={animeUrl} />
                     <span style={{
           fontWeight: 'bold',
           color: 'red',
         }}>{errorMessage}</span>
-                </div>
+                </div> */}
                 <div className="mb-3">
                     
-                    <label htmlFor="exampleInputPassword1" className="form-label"> Episode Image </label>
+                    <label htmlFor="exampleInputPassword1" className="form-label"> Anime Image </label>
                     <input type="file" onChange={(e) => handleFileUpload(e)}  />
                 </div>
-                <div className="mb-3">
+                {/* <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Num Episode</label>
                     <input type="number" className="form-control" id="exampleInputEmail1" onChange={handleEpisodes} value={episodes}/>
-                </div>
+                </div> */}
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Description</label>
                     <input type="text" className="form-control" id="exampleInputEmail1" onChange={handleDescription} value={description}/>

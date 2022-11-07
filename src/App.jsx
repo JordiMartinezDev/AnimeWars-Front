@@ -13,7 +13,8 @@ import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import CreateEpisode from "./pages/CreateEpisode/CreateEpisode";
-
+import CreateAnime from "./pages/CreateAnime/CreateAnime";
+import SeeMyAnimeList from "./pages/Anime/SeeMyAnimeList";
 
 function App() {
   return (

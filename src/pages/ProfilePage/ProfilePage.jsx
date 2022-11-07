@@ -35,32 +35,13 @@ function ProfilePage() {
   //   })
   // }
   
-  // return ();
-  //   // <div>
-  //   //   {/* <h1>Profile page</h1>
-  //   //   <Link to="/editProfileImg/:userId">
-  //   //     <button>Edit IMG</button>
-  //   //   </Link>
-      
-  //   //   <Link to="/createAnime/:userId">
-  //   //     <button>Uploded Anime</button>
-  //   //   </Link>
-  //   //   <form className="container" onSubmit={submitHandler}>
-  //   //             <div className="mb-3">
-  //   //                 <label htmlFor="titleApartment" className="form-label">Title</label>
-  //   //                 <input type="text" className="form-control" id="titleApartment" aria-describedby="emailHelp" value={form.title} onChange={handleTitle}/>
-  //   //             </div>
-  //   //             <div className="mb-3">
-  //   //                 <label htmlFor="imageApartment" className="form-label">Image</label>
-  //   //                 <input type="text" className="form-control" id="imageApartment" value={form.image} onChange={handleImage}/>
-  //   //             </div>
-  //   //             <div className="mb-3">
-  //   //                 <label htmlFor="priceApartment" className="form-label">Price per day</label>
-  //   //                 <input type="number" className="form-control" id="priceApartment" value={form.price} onChange={handlePrice}/>
-  //   //             </div>
-  //   //             <button type="submit" className="btn btn-primary">Submit</button>
-  //   //             </form> */}
-  //   // </div>
+   return (
+    <div>
+    <ProfileAnimeCreatedBox></ProfileAnimeCreatedBox>
+    
+  </div>
+   );
+  
 }
 
 export default ProfilePage;
