@@ -9,6 +9,9 @@ class AnimeApiService {
   getAnime(animeId) {
     return axios.get(apiUrl + "/animes/" + animeId);
   }
+  getAnimeSearch(searchValue) {
+    return axios.get(apiUrl + "/animes/searchvalue", searchValue);
+  }
   deleteAnime(animeId) {
     return axios.delete(apiUrl + "/animes/" + animeId);
   }

@@ -2,6 +2,7 @@ import "./HomePage.css";
 import animeAPI from "../../services/animeAPI.service";
 import { useState } from 'react'
 import { useEffect} from 'react'
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 function HomePage() {
   const [animes, setAnimes] = useState([])
@@ -21,7 +22,7 @@ function HomePage() {
     <div>
       <h1>Home asdsds</h1>
 
-      
+      <SearchBar></SearchBar>
       <div> 
         {/* {animes.map(anime => <ShowAnime anime={anime} key={anime._id}/>)}  */}
         

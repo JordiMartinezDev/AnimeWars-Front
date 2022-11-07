@@ -14,7 +14,6 @@ function SeeMyAnimeList(){
     // const {user} = useContext(AuthContext);
 
     useEffect(() => {
-        console.log("USEFFECt SEEMYANIMELIST")
         animeAPI.getAnimes()
         .then(results => {
             console.log("LISTA ANIMES", results.data);

@@ -31,7 +31,8 @@ function App() {
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
         <Route path="/createEpisode/:userId" element={<CreateEpisode></CreateEpisode>}/>
         <Route path="/editProfileImg/:userId" element={<EditProfileImg></EditProfileImg>} /> 
-        <Route path="/createAnime/:userId" element={<CreateAnime></CreateAnime>}/>
+        {<Route path="/createAnime/:userId" element={<CreateAnime></CreateAnime>} />}
+        
         <Route path="/*" element={<NotFoundPage></NotFoundPage>} />
 
 
