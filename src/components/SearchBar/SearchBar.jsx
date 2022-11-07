@@ -48,13 +48,7 @@ function SearchBar() {
         
 
     }, [key])
-    
-    useEffect(() => {
-
-        
-        
-    }, [searchResult])
-    
+   
     function handleSearchChange() {
         
     }
@@ -68,7 +62,8 @@ function SearchBar() {
                         <input className='form-control' type="text" placeholder='Search..' value={key} onChange={e => setKey(e.target.value)} />
                     </div>
                     {searchResult.map(anime => {
-                        return <p>{anime.name}</p>
+                        return (
+                            <img src={anime.animeImage } name='animeImage' alt="anime" width={200}/>)
 
                         // IMAGES AND LINKS TO EACH ANIME'S PAGE
 
