@@ -7,17 +7,17 @@ class AnimeApiService {
     return axios.get(apiUrl + "/animes");
   }
   getAnime(animeId) {
-    return axios.get(apiUrl + "/animes" + animeId);
+    return axios.get(apiUrl + "/animes/" + animeId);
   }
   deleteAnime(animeId) {
-    return axios.delete(apiUrl + "/animes" + animeId);
+    return axios.delete(apiUrl + "/animes/" + animeId);
   }
   addAnime(anime) {
     // return axios.post(apiUrl, {img: apartment.img, title: apartment.title, pricePerDay: apartment.pricePerDay});
     return axios.post(apiUrl + "/animes", anime);
   }
   editAnime(anime) {
-    return axios.put(apiUrl + "/animes" + anime._id, anime);
+    return axios.put(apiUrl + "/animes/" + anime._id, anime);
   }
 
   // ------ Episodes -------
@@ -26,17 +26,17 @@ class AnimeApiService {
     return axios.get(apiUrl + "/episodes");
   }
   getEpisode(episodeId) {
-    return axios.get(apiUrl + "/episodes" + episodeId);
+    return axios.get(apiUrl + "/episodes/" + episodeId);
   }
   deleteEpisode(episodeId) {
-    return axios.delete(apiUrl + "/episodes" + episodeId);
+    return axios.delete(apiUrl + "/episodes/" + episodeId);
   }
   addEpisode(episode) {
     // return axios.post(apiUrl, {img: apartment.img, title: apartment.title, pricePerDay: apartment.pricePerDay});
     return axios.post(apiUrl + "/episodes", episode);
   }
   editEpisode(episode) {
-    return axios.put(apiUrl + "/episodes" + episode._id, episode);
+    return axios.put(apiUrl + "/episodes/" + episode._id, episode);
   }
 }
 

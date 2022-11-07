@@ -3,8 +3,8 @@ import 'bootstrap';
 import { useState } from "react";
 import animeAPI from '../../services/animeAPI.service';
 import {Navigate, useNavigate} from 'react-router-dom';
-import validator from 'validator'
-
+// import validator from 'validator';
+import { Validator } from 'react';
 
 
 function CreateEpisode() {
@@ -57,7 +57,7 @@ function CreateEpisode() {
         console.log(" UPLOADDATA ---> ", uploadData)
         // If anime URL is correct, submit Episode to DB, else... error message
 
-        if (validator.isURL(animeUrl)) { 
+        if (Validator.isURL(animeUrl)) { 
             setErrorMessage('Valid URL')
             
 
