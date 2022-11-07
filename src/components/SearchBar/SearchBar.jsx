@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
 import animeAPI from '../../services/animeAPI.service';
 
 
@@ -28,7 +29,7 @@ function SearchBar() {
                     const newKey = key.toLocaleLowerCase();
                     const newAnimeName = anime.name.toLocaleLowerCase();
                     
-                    if (newAnimeName.search(newKey) != -1) {
+                    if (newAnimeName.search(newKey) != -1 || newKey =="all") {
                         console.log("Coincideix: ", anime.name);
                         clonedAnimeArr.push(anime)
                         
@@ -63,8 +64,15 @@ function SearchBar() {
                     </div>
                     {searchResult.map(anime => {
                         return (
-                            <img src={anime.animeImage } name='animeImage' alt="anime" width={200}/>)
-
+                            <div>
+                                <Link to={"/animes/" + anime._id}>
+                            <img src={anime.animeImage} name='animeImage' alt="anime" width={150} >
+                             
+                                    </img>
+                                    </Link>   
+                            </div>
+                        )
+                        
                         // IMAGES AND LINKS TO EACH ANIME'S PAGE
 
                     })}

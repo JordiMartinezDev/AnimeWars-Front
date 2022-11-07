@@ -1,6 +1,8 @@
 import {Link} from 'react-router-dom';
 
 function ShowAnime(props) {
+    const [animeId] = useParams()
+    
     const {anime} = props;
     console.log(anime)
     return (
