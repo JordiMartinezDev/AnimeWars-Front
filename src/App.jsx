@@ -13,7 +13,8 @@ import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import CreateEpisode from "./pages/CreateEpisode/CreateEpisode";
-
+import SeeMyAnimeList from "./pages/Anime/SeeMyAnimeList";
+import CreateAnime from "./pages/CreateAnime/CreateAnime"
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
         <Route path="/createEpisode/:userId" element={<CreateEpisode></CreateEpisode>}/>
         <Route path="/editProfileImg/:userId" element={<EditProfileImg></EditProfileImg>} /> 
-        <Route path="/createAnime/:userId" element={<CreateAnime></CreateAnime>}/>
+        { <Route path="/createAnime/:userId" element={<CreateAnime></CreateAnime>}/> }
         <Route path="/*" element={<NotFoundPage></NotFoundPage>} />
 
 
