@@ -1,8 +1,5 @@
 import {Link} from 'react-router-dom';
 import React from 'react';
-<<<<<<< HEAD
-import { useParams} from 'react'
-=======
 import { useParams } from 'react-router-dom'
 
 
@@ -11,7 +8,6 @@ function ShowAnime() {
     // const {anime} = props;
 
 
->>>>>>> jordi
 
     return (
         <>
