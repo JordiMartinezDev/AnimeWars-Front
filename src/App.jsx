@@ -24,7 +24,7 @@ import ShowAnime from "./components/ShowAnime/ShowAnime";
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar /> */}
       
       <Routes>
 

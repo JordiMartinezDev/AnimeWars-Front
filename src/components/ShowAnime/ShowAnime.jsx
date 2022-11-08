@@ -4,11 +4,46 @@ import { useParams} from 'react'
 import { useEffect,useState } from 'react';
 import animeAPI from '../../services/animeAPI.service';
 
+
 function ShowAnime(props) {
-    const [animeId] = useParams()
+    const {animeId} = useParams()
     
     const {anime} = props;
+
+    const [animeL, setAnime] = useState([]);
+    // const {anime} = props;
+
+    useEffect( ()=> {
+
+        animeAPI.getAnime(animeId)
+            .then(response => {
+                setAnime(response.data)
+                console.log("Anime in ShowAnime: ",response.data)
+        })
+
+    },[])
+
+    function handleLike() {
+        const uploadData = new FormData();
+        // uploadData.append("anime", animeL)
+        // uploadData.append("number", episodes)
+        // uploadData.append("episodeImage",episodeImage)
+        // uploadData.append("isPremium", false)
+        // uploadData.append("episodeUrl", animeUrl)  
+
+        animeAPI.editAnime(animeId)
+            .then(result => {
+                console.log("Like Handled? -> ", uploadData)
+        })
+    }
+    function handleUnlike() {
+        
+    }
+
+
     return (
+        <>
+            {true ? <button onClick={handleUnlike}> Liked</button> : <button onClick={handleLike}>Not Liked Yet</button>}
         <div class="col">
         <div class="card-group">
         <div class="card">
@@ -21,7 +56,9 @@ function ShowAnime(props) {
         </div>
         </div>
         </div>
-        </div>
+            </div>
+            
+        </>
     );
 }
 
