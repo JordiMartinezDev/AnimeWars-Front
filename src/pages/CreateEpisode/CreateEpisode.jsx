@@ -5,11 +5,12 @@ import animeAPI from '../../services/animeAPI.service';
 import {Navigate, useNavigate} from 'react-router-dom';
 import validator from 'validator'
 import { useEffect } from 'react';
+import Validator from 'validator';
 
 
 
 function CreateEpisode() {
-    const[name, setName]= useState("");
+    const[anime, setAnime]= useState("patata");
     
     // const [category, setCategory] = useState("");
     const [animeUrl, setAnimeUrl] = useState("");
@@ -21,9 +22,11 @@ function CreateEpisode() {
     // const [followedUsers, setFollowedUser]=useState([{}]);
     const navigate = useNavigate();
    
-    const handleName =(e)=>{
-        setName(e.target.value);
-    }
+     const handleAnime =(e)=>{
+        setAnime(e.target.value);
+        console.log ("anime name: ", anime)
+        console.log ("anime name target: ", e.target.value)
+     }
     // const handleCategory =(e)=>{
     //     setCategory(e.target.value);
 
@@ -31,10 +34,10 @@ function CreateEpisode() {
     const handlAnimeUrl = (e) => {
         setAnimeUrl(e.target.value)
     }
-    const handleDescription =(e)=>{
-        setDesccription(e.target.value);
+    // const handleDescription =(e)=>{
+    //     setDesccription(e.target.value);
 
-    }
+    // }
     const handleEpisodes =(e)=>{
         setEpisodes(e.target.value);
 
@@ -46,7 +49,7 @@ function CreateEpisode() {
     
         
         const uploadData = new FormData();
-        uploadData.append("name", name)
+        uploadData.append("anime", anime)
         uploadData.append("number", episodes)
         uploadData.append("episodeImage",episodeImage)
         uploadData.append("isPremium", false)
@@ -62,7 +65,7 @@ function CreateEpisode() {
            
             animeAPI.addEpisode(uploadData)
                 .then(results => {
-                    console.log("aaaaa: ", results)
+                    console.log("aaaaa: ", results.data)
                     navigate("/");
                 })
                 .catch(err => {
@@ -112,20 +115,17 @@ function CreateEpisode() {
     
 
     return (
-        <div>
+        <div className='CreateEpisode'>
             <h1> Create Episode Form Page</h1>
            
             <form onSubmit={submitHandler} action="/createEpisode" encType="multipart/form-data">
-                {/* <div className="mb-3">
-                    <label htmlFor="exampleInputPassword1" className="form-label" >Anime Name</label>
-                    <input type="text" className="form-control" id="exampleInputEmail1" onChange={handleName} value={name}/>
-                </div> */}
+                
     
-                <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name='name'>
+                <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name='anime' onChange={handleAnime}>
                     {/* Aqui hem de fer un map, i que cada opccio sigui un anime ja creat */}
                     <option selected>Animes</option> 
                     {animeNames.map(anime =>{
-                        return ( <option value={anime.name}>{anime.name}</option>);
+                        return ( <option value={anime.name} >{anime.name}</option>);
                     })
                     }
                     
@@ -134,10 +134,7 @@ function CreateEpisode() {
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Link</label>
                     <input type="text" className="form-control" id="exampleInputEmail1" onChange={handlAnimeUrl} value={animeUrl} />
-                    <span style={{
-          fontWeight: 'bold',
-          color: 'red',
-        }}>{errorMessage}</span>
+                    <span style={{ fontWeight: 'bold',color: 'red', }}>{errorMessage}</span>
                 </div>
                 <div className="mb-3">
                     
@@ -148,23 +145,12 @@ function CreateEpisode() {
                     <label htmlFor="exampleInputPassword1" className="form-label">Num Episode</label>
                     <input type="number" className="form-control" id="exampleInputEmail1" onChange={handleEpisodes} value={episodes}/>
                 </div>
-                <div className="mb-3">
-                    <label htmlFor="exampleInputPassword1" className="form-label">Description</label>
-                    <input type="text" className="form-control" id="exampleInputEmail1" onChange={handleDescription} value={description}/>
-                </div>
-                {/* <div className="mb-3">
-                    <label htmlFor="exampleInputPassword1" className="form-label">Category</label>
-                    <input type="text" className="form-control" id="exampleInputEmail1" onChange={handleCategory} value={category}/>
-                </div> */}
-                {/* <div className="mb-3">
-                    <label htmlFor="exampleInputPassword1" className="form-label">Followers</label>
-                    <input type="number" className="form-control" id="exampleInputEmail1" value={followedUsers}/>
-                </div> */}
+               
+               
                 
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form> 
 
-            {}
         </div>
     )
 }
