@@ -43,7 +43,7 @@ function CreateAnime() {
 
     function submitHandler(e){
         e.preventDefault();
-        
+        console.log("Hola desde submit")
         
         const uploadData = new FormData();
         uploadData.append("name", name)
@@ -54,8 +54,7 @@ function CreateAnime() {
 
        
 
-        if (validator.isURL(animeUrl)) { 
-            setErrorMessage('Valid URL')
+        
             
             
             animeAPI.addAnime(uploadData)
@@ -66,11 +65,8 @@ function CreateAnime() {
                 .catch(err => {
                     console.log("error: ", err);
                 })
-        }
-        else {
-            setErrorMessage('Not a valid URL')
-            
-        }
+        
+        
     };
     
 
