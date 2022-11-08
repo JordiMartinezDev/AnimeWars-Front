@@ -2,11 +2,18 @@ import {Link} from 'react-router-dom';
 
 function ShowEpisode(props) {
     const {episode} = props;
+
     return (
-        <div class="col">
-        <div class="card-group">
-        <div class="card">
+        <div className="col">
+        <div className="card-group">
+        <div className="card">
+        <Link to={"/episode/" + episode._id}>
+        {console.log("AQUI AUN TENEMOS EL ID",episode._id)}
+
         <img src={episode.episodeImg} className="card-img-top" alt={episode.name} />
+
+        </Link>
+
         <div className="card-body">
             <h5 className="card-title">Name: {episode.name}</h5>
             {/* <p className="card-text">Description: {anime.description}</p>
@@ -20,3 +27,15 @@ function ShowEpisode(props) {
 }
 
 export default ShowEpisode;
+
+
+// return(
+//     <div className="card col-3 m-3">
+//         <img src={apartment.img} className="card-img-top" alt={apartment.title} />
+//         <div className="card-body">
+//             <h5 className="card-title">{apartment.title}</h5>
+//             <p className="card-text">{apartment.pricePerDay} €/day</p>
+//             <Link to={"/"+apartment._id}>View details</Link>
+//         </div>
+//     </div>
+// );

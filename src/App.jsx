@@ -17,8 +17,9 @@ import CreateAnime from "./pages/CreateAnime/CreateAnime";
 import SeeMyAnimeList from "./pages/Anime/SeeMyAnimeList";
 import ShowEpisodes from "./pages/ShowEpisodes/ShowEpisodes";
 import Episode from "./pages/Episode/Episode";
-import ShowAnime from "./components/ShowAnime/ShowAnime";
 import SearchPage from "./pages/SearchPage/SearchPage";
+import ShowEpisodesId from "./pages/ShowEpisodeId/ShowEpisodeId";
+import ShowAnime from "./components/ShowAnime/ShowAnime";
 
 function App() {
   return (
@@ -33,16 +34,17 @@ function App() {
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
         <Route path="/searchPage" element={<SearchPage></SearchPage> }/>
         <Route path="/createEpisode/:userId" element={<CreateEpisode></CreateEpisode>}/>
+        <Route path="/searchPage" element={<SearchPage></SearchPage>}/>
         <Route path="/editProfileImg/:userId" element={<EditProfileImg></EditProfileImg>} /> 
         {<Route path="/createAnime/:userId" element={<CreateAnime></CreateAnime>} />}
         
 
 
-        <Route path="/showepisodes" element={<ShowEpisodes></ShowEpisodes>}/>
-        <Route path="/animeList" element={<SeeMyAnimeList />} />
-        <Route path="/animes/:animeId" element={<ShowAnime/>}/>
-        <Route path="/episode/:episodeId" element={<Episode />} />
-
+        {/*Para probar */} 
+        <Route path="/animes/:animeId" element={<ShowEpisodes></ShowEpisodes>} />
+        <Route path="/episodesList" element={<ShowEpisodes></ShowEpisodes>}/>
+        <Route path="/animeList" element={<SeeMyAnimeList />}/>
+        <Route path="/episode/:episodeId" element={<Episode/>}/>
       </Routes>
       {/* recordatori de posa Is Private a tot en lo que el redme ho posa */}
     </div>
