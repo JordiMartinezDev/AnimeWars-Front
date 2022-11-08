@@ -64,13 +64,13 @@ function SearchBar() {
                     </div>
                     {searchResult.map(anime => {
                         return (
-                            <div>
+                            
                                 <Link to={"/animes/" + anime._id}>
                             <img src={anime.animeImage} name='animeImage' alt="anime" width={150} >
                              
                                     </img>
                                     </Link>   
-                            </div>
+                            
                         )
                         
                         // IMAGES AND LINKS TO EACH ANIME'S PAGE
