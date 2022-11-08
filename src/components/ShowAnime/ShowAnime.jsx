@@ -6,7 +6,7 @@ import animeAPI from '../../services/animeAPI.service';
 
 
 function ShowAnime(props) {
-    // const {animeId} = useParams()
+    //  const {animeId} = useParams()
     
     const {anime} = props;
 
@@ -15,7 +15,7 @@ function ShowAnime(props) {
 
     useEffect( ()=> {
 
-        animeAPI.getAnime(animeId)
+        animeAPI.getAnime(animeL)
             .then(response => {
                 setAnime(response.data)
                 console.log("Anime in ShowAnime: ",response.data)
@@ -31,7 +31,7 @@ function ShowAnime(props) {
         // uploadData.append("isPremium", false)
         // uploadData.append("episodeUrl", animeUrl)  
 
-        animeAPI.editAnime(animeId)
+        animeAPI.editAnime(animeL)
             .then(result => {
                 console.log("Like Handled? -> ", uploadData)
         })
@@ -43,7 +43,6 @@ function ShowAnime(props) {
 
     return (
         <>
-            {true ? <button onClick={handleUnlike}> Liked</button> : <button onClick={handleLike}>Not Liked Yet</button>}
         <div class="col">
         <div class="card-group">
         <div class="card">
@@ -56,7 +55,9 @@ function ShowAnime(props) {
         </div>
         </div>
         </div>
-        </div>
+            </div>
+            {true ? <button onClick={handleUnlike}> Following</button> : <button onClick={handleLike}> Unfollow</button>}
+            
         </>
     );
 }
