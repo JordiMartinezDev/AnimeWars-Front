@@ -6,7 +6,7 @@ import animeAPI from '../../services/animeAPI.service';
 
 
 function ShowAnime(props) {
-    const {animeId} = useParams()
+    // const {animeId} = useParams()
     
     const {anime} = props;
 
@@ -56,8 +56,7 @@ function ShowAnime(props) {
         </div>
         </div>
         </div>
-            </div>
-            
+        </div>
         </>
     );
 }
