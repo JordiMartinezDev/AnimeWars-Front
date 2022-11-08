@@ -1,24 +1,29 @@
 import {Link} from 'react-router-dom';
 import React from 'react';
+import {useParams} from 'react-router-dom';
 
-function ShowAnime(props) {
-    //const [animeId] = useParams()
+function ShowAnime({anime}) {   
+    const {animeId} = useParams()
     
-    const {anime} = props;
+
+
+    // const {anime} = props;
     return (
-        <div class="col">
-        <div class="card-group">
-        <div class="card">
+    
+        <div className="col">
+        <div className="card-group">
+        <div className="card">
         <img src={anime.animeImage} className="card-img-top" alt={anime.name} />
-        <div className="card-body">
-            <h5 className="card-title">Name: {anime.name}</h5>
-            <p className="card-text">Description: {anime.description}</p>
-            <p className="card-text">Genre: {anime.category}</p>
-            <p className="card-text">{anime.episodes}</p>
+       <div className="card-body"> 
+        <h5 className="card-title">Name: {anime.name}</h5>
+        <p className="card-text">Description: {anime.description}</p>
+         <p className="card-text">Genre: {anime.category}</p>
+        {/* <p className="card-text">{anime.episodes}</p>  */}
         </div>
         </div>
         </div>
         </div>
+
     );
 }
 

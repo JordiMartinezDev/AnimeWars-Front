@@ -17,6 +17,9 @@ import CreateAnime from "./pages/CreateAnime/CreateAnime";
 import SeeMyAnimeList from "./pages/Anime/SeeMyAnimeList";
 import ShowEpisodes from "./pages/ShowEpisodes/ShowEpisodes";
 import Episode from "./pages/Episode/Episode";
+import SearchPage from "./pages/SearchPage/SearchPage";
+import ShowEpisodesId from "./pages/ShowEpisodeId/ShowEpisodeId";
+import ShowAnime from "./components/ShowAnime/ShowAnime";
 
 function App() {
   return (
@@ -30,6 +33,7 @@ function App() {
         <Route path="/signup" element={ <IsAnon> <SignupPage /> </IsAnon>}/>
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
         <Route path="/createEpisode/:userId" element={<CreateEpisode></CreateEpisode>}/>
+        <Route path="/searchPage" element={<SearchPage></SearchPage>}/>
         <Route path="/editProfileImg/:userId" element={<EditProfileImg></EditProfileImg>} /> 
         {<Route path="/createAnime/:userId" element={<CreateAnime></CreateAnime>} />}
         
@@ -37,6 +41,7 @@ function App() {
 
 
         {/*Para probar */} 
+        <Route path="/animes/:animeId" element={<ShowEpisodes></ShowEpisodes>} />
         <Route path="/episodesList" element={<ShowEpisodes></ShowEpisodes>}/>
         <Route path="/animeList" element={<SeeMyAnimeList />}/>
         <Route path="/episode/:episodeId" element={<Episode/>}/>
