@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import animeAPI from '../../services/animeAPI.service';
+import ShowAnime from '../ShowAnime/ShowAnime';
 
 
 function SearchBar() {
@@ -65,11 +66,11 @@ function SearchBar() {
                     {searchResult.map(anime => {
                         return (
                             
-                                <Link to={"/animes/" + anime._id}>
-                            <img src={anime.animeImage} name='animeImage' alt="anime" width={150} >
-                             
-                                    </img>
-                                    </Link>   
+                            <Link key={ anime._id} to={"/animes/" + anime._id}>
+                            {/* <Link to={<ShowAnime anime={anime} ></ShowAnime>}>  */}
+                                <img src={anime.animeImage} name='animeImage' alt="anime" width={150}/>
+                                   
+                            </Link>   
                             
                         )
                         
