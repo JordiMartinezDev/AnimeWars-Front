@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import animeAPI from '../../services/animeAPI.service'
 
 function Episode() {
-    const [episode, setEpisode] = useState({});
+    const [episode, setEpisode] = useState([]);
     const {episodeId} = useParams();
     console.log(episodeId)
 
@@ -27,7 +27,7 @@ function Episode() {
     return (
         <div>
             <h1> One Episode Page</h1>
-            <p>{console.log("sdsdasdaasd", episode._id)}</p>
+            {/* <p>{console.log("sdsdasdaasd", episode._id)}</p> */}
             <ReactPlayer
             url={episode.episodeUrl}
             width="100%"
