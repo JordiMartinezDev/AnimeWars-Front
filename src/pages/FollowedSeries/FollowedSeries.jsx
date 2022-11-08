@@ -1,16 +1,10 @@
 
 
 
-
-
 function FollowedSeries(){
 
 
     // return();
-
-
-
-
 
 }
 
