@@ -3,7 +3,7 @@ import 'bootstrap';
 import { useState } from "react";
 import animeAPI from '../../services/animeAPI.service';
 import {Navigate, useNavigate} from 'react-router-dom';
-import Validator from 'validator'
+// import Validator from 'validator'
 import { useEffect } from 'react';
 import Validator from 'validator';
 

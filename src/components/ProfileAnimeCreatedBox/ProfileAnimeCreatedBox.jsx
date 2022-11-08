@@ -1,44 +1,15 @@
 import animeAPI from "../../services/animeAPI.service";
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap';
+import './ProfileAnimeCreatedBox.css';
 
 
 
 
 function ProfileAnimeCreatedBox () {
-    let data=[{
-        nom: "One Piece",
-        imgUrl:"https://uh.gsstatic.es/sfAttachPlugin/2157327.jpg"
-    },
-    {
-        nom: "Naruto",
-        imgUrl:"https://www.geekmi.news/__export/1652108985893/sites/debate/img/2022/05/09/naruto-shippuden.jpg_375108060.jpg"   
-    },
-    {
-        nom: "DatdeBayo",
-        imgUrl:"https://uh.gsstatic.es/sfAttachPlugin/2157327.jpg"
-    },
-    {
-        nom: "Porquis",
-        imgUrl:"https://www.geekmi.news/__export/1652108985893/sites/debate/img/2022/05/09/naruto-shippuden.jpg_375108060.jpg"   
-    },
-    {
-        nom: "DeleteoQdffsdueteVEo",
-        imgUrl:"https://uh.gsstatic.es/sfAttachPlugin/2157327.jpg"
-    },
-    {
-        nom: "ad",
-        imgUrl:"https://www.geekmi.news/__export/1652108985893/sites/debate/img/2022/05/09/naruto-shippuden.jpg_375108060.jpg"   
-    },
-    {
-        nom: "bbb",
-        imgUrl:"https://uh.gsstatic.es/sfAttachPlugin/2157327.jpg"
-    },
-    {
-        nom: "aaaa",
-        imgUrl:"https://www.geekmi.news/__export/1652108985893/sites/debate/img/2022/05/09/naruto-shippuden.jpg_375108060.jpg"   
-    }
-    ];
-    let randomSelect = Math.floor(Math.random()*data.length);
-    let dataView = data.slice(0,4);
+    
+    // let randomSelect = Math.floor(Math.random()*data.length);
+    // let dataView = data.slice(0,4);
     
     
    
@@ -47,14 +18,15 @@ function ProfileAnimeCreatedBox () {
     return (
         <div>
             <h1>Hola desde component ProfileAnimeCreatedBox</h1>
-            {dataView.map(result =>{
-                return (
-                    <div>
-                        <img src= {result.imgUrl} alt="Foto Anime" />
-                        <p>{result.nom}</p>
-                    </div>
-                )
-            })}
+            <div className="card" >
+                <img src="..." class="card-img-top" alt="..."/>
+                <div className="card-body">
+                    <h5 className="card-title">Card title</h5>
+                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" className="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            
 
         </div>
         
