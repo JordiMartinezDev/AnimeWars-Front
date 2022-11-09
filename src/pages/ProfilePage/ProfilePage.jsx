@@ -12,7 +12,8 @@ function ProfilePage() {
   
    return (
     <div>
-      <img src="https://themoodproject.com/wp-content/uploads/2020/09/default-team.png" alt="" />
+      <img className="ImgProfile" src="https://themoodproject.com/wp-content/uploads/2020/09/default-team.png" alt="" />
+      <a href="/editProfileImg/:userId">Edit profile</a>
       
     <ProfileAnimeCreatedBox></ProfileAnimeCreatedBox>
     

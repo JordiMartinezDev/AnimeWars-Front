@@ -26,7 +26,7 @@ import { AuthProviderWrapper } from "./context/auth.context";
 function App() {
   return (
     <div className="App">
-      {/* <Navbar /> */}
+       <Navbar /> 
       <AuthProviderWrapper>
       <Routes>
 
