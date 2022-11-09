@@ -21,12 +21,13 @@ import SearchPage from "./pages/SearchPage/SearchPage";
 import ShowEpisodesId from "./pages/ShowEpisodeId/ShowEpisodeId";
 import ShowAnime from "./components/ShowAnime/ShowAnime";
 import FilterByCategoryPage from "./pages/FilterByCategoryPage/FilterByCategoryPage";
+import {AuthProviderWrapper} from "./context/auth.context";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      
+      {/* <AuthProviderWrapper> */}
       <Routes>
 
         <Route path="/" element={<HomePage />} />
@@ -50,6 +51,7 @@ function App() {
 
         <Route path="/filterByCategory/:category" element={<FilterByCategoryPage></FilterByCategoryPage>}/>
       </Routes>
+      {/* </AuthProviderWrapper> */}
       {/* recordatori de posa Is Private a tot en lo que el redme ho posa */}
     </div>
   );
