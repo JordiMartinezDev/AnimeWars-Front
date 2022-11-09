@@ -5,33 +5,26 @@ import { AuthContext } from "../../context/auth.context";
 import lupa from "../../assets/lupa.png";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
-
 //bootstrap
-
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider's `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
-
   return (
     // <nav>
       /* <Link to="/">
         <button>Home</button>
       </Link> */
-
     //   {isLoggedIn && (
     //     <>
     //       <button onClick={logOutUser}>Logout</button>
-
     //       <Link to="/profile">
     //         <button>Profile</button>
     //         {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
     //     </Link>
-
     //       <span>{user && user.name}</span>
     //     </>
     //   )}
-
     //   {!isLoggedIn && (
     //     <>
     //       <Link to="/signup">
@@ -50,8 +43,6 @@ function Navbar() {
           <div className="container-fluid">
             
             <Link className="link text-danger navbar-brand" to="/">ANIMEWARS</Link>
-
-
           <button className="text-white navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
               <span className="text-white navbar-toggler-icon"></span>
           </button>
@@ -61,7 +52,6 @@ function Navbar() {
                 {/* <li className="nav-item">
                   <Link className="text-white bg-dark nav-link active" aria-current="page" to="/">Home</Link>
                 </li> */}
-
                 <li className="nav-item dropdown">
                   <p className="text-white bg-dark nav-link dropdown-toggle"  id="dropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Explore
@@ -123,5 +113,4 @@ function Navbar() {
   </nav>
   );
 }
-
 export default Navbar;
