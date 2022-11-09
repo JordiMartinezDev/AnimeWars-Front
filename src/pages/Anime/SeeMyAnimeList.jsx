@@ -11,6 +11,7 @@ function SeeMyAnimeList(){
 
     const [animes, setAnimes] = useState([]);
     const [temporal, setTemporal] = useState([]);
+    const [userFollowArray,setUserFollowArray] = useState([])
     
     //context
     // const {user} = useContext(AuthContext);
@@ -24,6 +25,15 @@ function SeeMyAnimeList(){
         .catch((err) => {
             console.log(err);
         })
+
+        animeAPI.getUser().then(result => {
+            setUserFollowArray(result.data.followedByAnimeId)
+        })
+            .catch(e=>{
+            console.log(e)
+        })
+
+
     }, [])
 
     return (
@@ -32,13 +42,12 @@ function SeeMyAnimeList(){
         <div className="row row-cols-5">
                {/* //Aqui haremos un map de los animes que el usuario tenga en su lista
         //y los mostraremos en una card(lo de la card hacerlo con bootstrap en ShowAnime.jsx)) */}
-         {animes.slice(0,5).map(anime => {         
+         {animes.map(anime => {         
             return (
                 <div key={anime._id}>
 
-                <Link to={"/animes/" + anime._id}>
-                 <ShowAnime anime={anime}></ShowAnime> 
-                </Link>
+                    <ShowAnime anime={anime} userFollowArray={ userFollowArray}></ShowAnime> 
+                
                 </div>
 
                 );

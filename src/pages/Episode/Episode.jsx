@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import ReactPlayer from 'react-player'
 import { useParams } from 'react-router-dom'
+import ShowComments from '../../components/ShowComments/ShowComments';
 import animeAPI from '../../services/animeAPI.service'
 
 function Episode() {
     const [episode, setEpisode] = useState([]);
-    const {episodeId} = useParams();
+    const { episodeId } = useParams();
+    const { newComment, setNewComment } = useState();
     console.log(episodeId)
 
 
@@ -22,6 +24,27 @@ function Episode() {
             console.log(err);
         })
     }, [])
+    
+    function submitComment(e) {
+        //push comment to DB
+        e.preventDefault();
+    
+        
+        const uploadData = new FormData();
+        uploadData.append("episode", episode)
+        uploadData.append("newComment", newComment)
+       
+
+
+        animeAPI.addComment(uploadData)
+                .then(results => {
+                    console.log("aaaaa: ", results.data)
+                    //setComment, refresh etc
+                })
+                .catch(err => {
+                    console.log("Error CreateEpisode.JSX --> : ", err);
+                })
+    }
 
 
     return (
@@ -36,6 +59,21 @@ function Episode() {
             // playIcon={<button>Play</button>}
             light="https://i.stack.imgur.com/zw9Iz.png"
             />
+
+            <h2> Comments </h2>
+            {(episode.commentId)?
+            episode.commentId.map(comment => {
+                <ShowComments comment={comment} key={ comment._id}></ShowComments>
+                
+            }) : <div></div>}
+
+            <form onSubmit={submitComment}>
+
+            <textarea id="exampleFormControlTextArea" rows="3"/>
+
+            <button type="submit" className="btn btn-primary">Comment</button>
+                
+            </form>
         </div>
         
     )

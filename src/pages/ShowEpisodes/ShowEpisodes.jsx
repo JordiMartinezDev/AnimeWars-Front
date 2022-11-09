@@ -46,7 +46,8 @@ function ShowEpisodes(){
 
     return (
         <div className="container text-center">
-        <h1>Episodes List</h1>
+            <h1>Episodes List</h1>
+            <img src={animes.animeImage } width="500px" />
         <div className="row row-cols-5">
                {/* //Aqui haremos un map de los animes que el usuario tenga en su lista
         //y los mostraremos en una card(lo de la card hacerlo con bootstrap en ShowAnime.jsx)) */}
