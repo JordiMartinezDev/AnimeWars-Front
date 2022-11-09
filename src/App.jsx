@@ -20,12 +20,13 @@ import Episode from "./pages/Episode/Episode";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import ShowEpisodesId from "./pages/ShowEpisodeId/ShowEpisodeId";
 import ShowAnime from "./components/ShowAnime/ShowAnime";
+import { AuthProviderWrapper } from "./context/auth.context";
 
 function App() {
   return (
     <div className="App">
       {/* <Navbar /> */}
-      
+      <AuthProviderWrapper>
       <Routes>
 
         <Route path="/" element={<HomePage />} />
@@ -45,7 +46,8 @@ function App() {
         <Route path="/episodesList" element={<ShowEpisodes></ShowEpisodes>}/>
         <Route path="/animes" element={<SeeMyAnimeList />}/>
         <Route path="/episode/:episodeId" element={<Episode/>}/>
-      </Routes>
+        </Routes>
+        </AuthProviderWrapper>
       {/* recordatori de posa Is Private a tot en lo que el redme ho posa */}
     </div>
   );

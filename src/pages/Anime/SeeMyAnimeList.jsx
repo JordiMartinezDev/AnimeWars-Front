@@ -32,13 +32,12 @@ function SeeMyAnimeList(){
         <div className="row row-cols-5">
                {/* //Aqui haremos un map de los animes que el usuario tenga en su lista
         //y los mostraremos en una card(lo de la card hacerlo con bootstrap en ShowAnime.jsx)) */}
-         {animes.slice(0,5).map(anime => {         
+         {animes.map(anime => {         
             return (
                 <div key={anime._id}>
 
-                <Link to={"/animes/" + anime._id}>
                  <ShowAnime anime={anime}></ShowAnime> 
-                </Link>
+                
                 </div>
 
                 );

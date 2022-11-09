@@ -22,6 +22,12 @@ class AnimeApiService {
   editAnime(anime) {
     return axios.put(apiUrl + "/animes/" + anime._id, anime);
   }
+  followAnime(animeAndUser) {
+    return axios.put(
+      apiUrl + "/animes/followanime/" + animeAndUser.anime._id,
+      animeAndUser
+    );
+  }
 
   // ------ Episodes -------
 
@@ -40,6 +46,12 @@ class AnimeApiService {
   }
   editEpisode(episode) {
     return axios.put(apiUrl + "/episodes/" + episode._id, episode);
+  }
+
+  //-------- USER ---------
+
+  getUser() {
+    return axios.get(apiUrl + "/user");
   }
 }
 
