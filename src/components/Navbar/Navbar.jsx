@@ -67,7 +67,7 @@ function Navbar() {
                     Explore
                   </p>
                   <ul className="text-white bg-dark dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                    <li><button className="buttonProfile"><Link to="/" className="text-white bg-dark dropdown-item">Shonen</Link></button></li>
+                    <li><button className="buttonProfile"><Link to="/filterByCategory/shonen" className="text-white bg-dark dropdown-item">Shonen</Link></button></li>
                     <li><Link to="/" className="text-white bg-dark dropdown-item">Adventure</Link></li>
                     <li><Link to="/" className="text-white bg-dark dropdown-item">Comedy</Link></li>
                     <li><Link to="/" className="text-white bg-dark dropdown-item">Drama</Link></li>
