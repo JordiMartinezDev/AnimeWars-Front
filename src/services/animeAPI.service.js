@@ -41,6 +41,7 @@ class AnimeApiService {
   editEpisode(episode) {
     return axios.put(apiUrl + "/episodes/" + episode._id, episode);
   }
+  
 }
 
 const animeAPI = new AnimeApiService();

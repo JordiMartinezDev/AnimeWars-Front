@@ -53,7 +53,7 @@ function CreateEpisode() {
         uploadData.append("number", episodes)
         uploadData.append("episodeImage",episodeImage)
         uploadData.append("isPremium", false)
-        uploadData.append("episodeUrl", animeUrl)        
+        uploadData.append("episodeUrl", animeUrl)  // lo vermell es igual al model   
         
         console.log(" UPLOADDATA ---> ", uploadData)
         // If anime URL is correct, submit Episode to DB, else... error message
