@@ -37,7 +37,7 @@ function SeeMyAnimeList(){
                 <div key={anime._id}>
 
                 <Link to={"/animes/" + anime._id}>
-                <ShowAnime anime={anime}></ShowAnime>
+                 <ShowAnime anime={anime}></ShowAnime> 
                 </Link>
                 </div>
 
