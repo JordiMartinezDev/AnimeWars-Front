@@ -4,7 +4,9 @@ import { useState } from "react";
 import animeAPI from '../../services/animeAPI.service';
 import {Navigate, useNavigate} from 'react-router-dom';
 import Validator from 'validator'
-import { useEffect } from 'react';
+import { useEffect,useContext } from 'react';
+import { AuthContext } from '../../context/auth.context';
+
 
 
 
@@ -18,7 +20,9 @@ function CreateEpisode() {
     const [episodes, setEpisodes] = useState([{}]);
     const [episodeImage, setEpisodeImage] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
-    const [animeNames, setAnimeNames] = useState ([]);
+    const [animeNames, setAnimeNames] = useState([]);
+    const { user} = useContext(AuthContext);  
+    
     // const [followedUsers, setFollowedUser]=useState([{}]);
     const navigate = useNavigate();
    
@@ -53,7 +57,8 @@ function CreateEpisode() {
         uploadData.append("number", episodes)
         uploadData.append("episodeImage",episodeImage)
         uploadData.append("isPremium", false)
-        uploadData.append("episodeUrl", animeUrl)  // lo vermell es igual al model   
+        uploadData.append("episodeUrl", animeUrl)
+        uploadData.append("userId",user._id)  // lo vermell es igual al model
         
         console.log(" UPLOADDATA ---> ", uploadData)
         // If anime URL is correct, submit Episode to DB, else... error message

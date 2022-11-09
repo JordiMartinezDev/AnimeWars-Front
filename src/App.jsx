@@ -41,7 +41,6 @@ function App() {
         {<Route path="/createAnime/:userId" element={<CreateAnime></CreateAnime>} />}
         
 
-
         {/*Para probar */} 
         <Route path="/animes/:animeId" element={<ShowEpisodes></ShowEpisodes>} />
         <Route path="/episodesList" element={<ShowEpisodes></ShowEpisodes>}/>
