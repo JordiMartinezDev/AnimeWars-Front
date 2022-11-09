@@ -53,6 +53,11 @@ class AnimeApiService {
   getUser() {
     return axios.get(apiUrl + "/user");
   }
+
+  // ------ Comments ------
+  addComment(episode) {
+    return axios.post(apiUrl + "/episode/" + episode._id);
+  }
 }
 
 const animeAPI = new AnimeApiService();

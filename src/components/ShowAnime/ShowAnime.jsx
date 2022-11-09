@@ -11,7 +11,7 @@ function ShowAnime(props) {
     
     const { user} = useContext(AuthContext);  
 
-    const {anime} = props;
+    const {anime,userFollowArray} = props;
 
     const [animeL, setAnime] = useState([]);
     // const {anime} = props;
@@ -21,14 +21,12 @@ function ShowAnime(props) {
         animeAPI.getAnime(animeL)
             .then(response => {
                 setAnime(response.data)
-                console.log("Anime in ShowAnime: ",response.data)
-        })
+            })
+        
 
     },[])
 
     function handleLike() {
-        console.log("USER ID IS : ", user._id)
-        console.log("anime ID IS : ", anime)
         
         const uploadData = new FormData();
         uploadData.append("anime", anime.name)
@@ -43,7 +41,6 @@ function ShowAnime(props) {
         }
         animeAPI.followAnime(animeAndUser)
             .then(result => {
-                console.log("Like Handled? -> ", user._id)
                 console.log(result)
             })
         .catch(e => console.log(e))
@@ -51,11 +48,20 @@ function ShowAnime(props) {
     function handleUnlike() {
         
     }
+    function userFollows() {
+        console.log("entering in userFollows?", userFollowArray.length)
+        
+        if (userFollowArray.length > 0)
+        userFollowArray.map(animeId => {
+            console.log("AnimeId to check FOLLOWS: ",animeId)
+            if (animeId == anime._id) return true;
+        })
 
+        return false;
+    }
 
     return (
         <>
-            <h1>H1{console.log("USER HERE -> :", user)}</h1>
         <div class="col">
         <div class="card-group">
                     <div class="card">
@@ -73,7 +79,7 @@ function ShowAnime(props) {
         </div>
             </div>
             
-            {false ? <button onClick={handleUnlike}> Unfollow</button> : <button onClick={handleLike}> Follow</button>}
+            {userFollows() ? <button onClick={handleUnlike}> Unfollow</button> : <button onClick={handleLike}> Follow</button>}
             
         </>
     );

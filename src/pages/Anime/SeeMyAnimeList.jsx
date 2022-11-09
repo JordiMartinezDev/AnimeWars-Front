@@ -11,6 +11,7 @@ function SeeMyAnimeList(){
 
     const [animes, setAnimes] = useState([]);
     const [temporal, setTemporal] = useState([]);
+    const [userFollowArray,setUserFollowArray] = useState([])
     
     //context
     // const {user} = useContext(AuthContext);
@@ -24,6 +25,15 @@ function SeeMyAnimeList(){
         .catch((err) => {
             console.log(err);
         })
+
+        animeAPI.getUser().then(result => {
+            setUserFollowArray(result.data.followedByAnimeId)
+        })
+            .catch(e=>{
+            console.log(e)
+        })
+
+
     }, [])
 
     return (
@@ -36,7 +46,7 @@ function SeeMyAnimeList(){
             return (
                 <div key={anime._id}>
 
-                 <ShowAnime anime={anime}></ShowAnime> 
+                    <ShowAnime anime={anime} userFollowArray={ userFollowArray}></ShowAnime> 
                 
                 </div>
 
