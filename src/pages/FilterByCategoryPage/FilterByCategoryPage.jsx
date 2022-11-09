@@ -30,20 +30,41 @@ function FilterByCategoryPage(){
 //     })
 
 
+    // return(
+        // <div>
+        //     {/* <button onClick={ShonenHandler}>Shonen</button> */}
+        //     {animeArray.map(anime => <ShowAnime anime={anime} key={anime._id}/>)}
+        // </div>
+    // );
 
+    return (
+        <div className="container text-center">
+        <h1>Filter by category</h1>
+        <div className="row row-cols-5">
+               {/* //Aqui haremos un map de los animes que el usuario tenga en su lista
+        //y los mostraremos en una card(lo de la card hacerlo con bootstrap en ShowAnime.jsx)) */}
+         {animeArray.map(anime => {         
+            return (
+                <div key={anime._id}>
 
+                    <ShowAnime anime={anime} /*userFollowArray={ userFollowArray}*/></ShowAnime> 
+                
+                </div>
 
-
-
-
-    return(
-        <div>
-            {/* <button onClick={ShonenHandler}>Shonen</button> */}
-            {animeArray.map(anime => <ShowAnime anime={anime} key={anime._id}/>)}
+                );
+            })
+        }
+        </div>
         </div>
     );
 
+
+
+
+
+
 }
+
 
 
 export default FilterByCategoryPage;

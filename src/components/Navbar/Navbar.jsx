@@ -81,7 +81,7 @@ function Navbar() {
                       <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" />
                     </button>
                       <ul className="buttonProfile dropdown-menu text-white bg-dark dropdown-menu">
-                        {isLoggedIn && (
+                        {isLoggedIn ?
                           <>
                           <li className="buttonProfile text-white  dropdown-item"  ><Link className="text-white  dropdown-item" to="/profile">
                                 Profile
@@ -90,8 +90,8 @@ function Navbar() {
                           <li className="buttonProfile text-white dropdown-item"><button className="buttonProfile text-white" onClick={logOutUser}>Logout</button></li>
                           <span>{user && user.name}</span>
                           </>
-                        )}
-                        {!isLoggedIn && (
+                         :
+                        
                           <>
                             <li >
                               <Link className="dropdown-item" to="/signup">
@@ -104,7 +104,7 @@ function Navbar() {
                               </Link>
                             </li>
                           </>
-                        )}
+                        }
                       </ul>
                     </div>
                 </form>
