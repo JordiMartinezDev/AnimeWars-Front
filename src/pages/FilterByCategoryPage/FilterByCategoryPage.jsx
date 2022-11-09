@@ -7,7 +7,6 @@ import ShowAnime from "../../components/ShowAnime/ShowAnime";
 
 
 function FilterByCategoryPage(){
-    const [filt, setFilt] = useState([])
     const {category} = useParams();
     const [animeArray,setAnimeArray] = useState([])
 
@@ -17,7 +16,6 @@ function FilterByCategoryPage(){
             //setFilt(results.data);
             console.log(" Result GetAnimes() de FilterByCategory :  ", results.data)
             setAnimeArray(results.data.filter(anime => anime.category === category))
-            console.log("ANIME ARRAY", animeArray)
         })
     }, []);
 
@@ -46,6 +44,7 @@ function FilterByCategoryPage(){
          {animeArray.map(anime => {         
             return (
                 <div key={anime._id}>
+                {console.log("Aqui imprime el anime", anime)}
 
                     <ShowAnime anime={anime} /*userFollowArray={ userFollowArray}*/></ShowAnime> 
                 
