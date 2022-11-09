@@ -8,35 +8,12 @@ import ProfileFavoriteBox from "../../components/ProfileFavoriteBox/Componente P
 
 function ProfilePage() {
 
-  // const submitHandler = (e) => {
-  //   const [form, setForm] = useState({image: ""});
-
-  //   const navigate = useNavigate();
-
-    
-  //   const handleImage = (e) => {
-  //       const copiaForm = {...form};
-  //       copiaForm.image = e.target.value;
-  //       setForm(copiaForm)
-  //   }
-
-    
-  //   e.preventDefault();
-  //   const newProfileImage = {
-  //       img: form.image,
-  //   };
-    
-  //   animeAPI.addApartment(newProfileImage)
-  //   .then(results => {
-  //       navigate("/");
-  //   })
-  //   .catch(err => {
-  //       // navigate("/error");
-  //   })
-  // }
+  
   
    return (
     <div>
+      <img src="https://themoodproject.com/wp-content/uploads/2020/09/default-team.png" alt="" />
+      
     <ProfileAnimeCreatedBox></ProfileAnimeCreatedBox>
     
   </div>
