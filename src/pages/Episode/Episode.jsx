@@ -33,6 +33,10 @@ function Episode() {
             width="100%"
             height="500px"
             playing
+<<<<<<< HEAD
+=======
+            // playIcon={<button>Play</button>}
+>>>>>>> oscar
             light="https://i.stack.imgur.com/zw9Iz.png"
             />
         </div>

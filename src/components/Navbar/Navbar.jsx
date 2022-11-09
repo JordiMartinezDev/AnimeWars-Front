@@ -15,22 +15,22 @@ function Navbar() {
 
   return (
     // <nav>
-      // {/* <Link to="/">
-      //   <button>Home</button>
-      // </Link> */}
+      /* <Link to="/">
+        <button>Home</button>
+      </Link> */
 
-      // {/* {isLoggedIn && (
-      //   <>
-      //     <button onClick={logOutUser}>Logout</button>
+    //   {isLoggedIn && (
+    //     <>
+    //       <button onClick={logOutUser}>Logout</button>
 
-      //     <Link to="/profile">
-      //       <button>Profile</button>
-      //       {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
-      // //     </Link>
+    //       <Link to="/profile">
+    //         <button>Profile</button>
+    //         {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
+    //     </Link>
 
-      //     <span>{user && user.name}</span>
-      //   </>
-      // )}
+    //       <span>{user && user.name}</span>
+    //     </>
+    //   )}
 
     //   {!isLoggedIn && (
     //     <>
@@ -44,68 +44,84 @@ function Navbar() {
     //       </Link>
     //     </>
     //   )}
-    // </nav> */}
-
-
+    // </nav>
   <nav className="navbar navbar-expand-lg navbar-darkt bg-dark">
-  <div className="container-fluid">
-    
-    {/* < className="text-danger navbar-brand"> */}
-    <Link className="link text-danger navbar-brand" to="/">AnimeWars</Link>
-    {/* </a> */}
+                    
+          <div className="container-fluid">
+            
+            <Link className="link text-danger navbar-brand" to="/">ANIMEWARS</Link>
 
-    <button className="text-white navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="text-white navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarScroll">
-      <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" /*style={{"--bs-scroll-height: "100px"}}*/>
-        <li className="nav-item">
-          {/* <a className=" text-white bg-dark nav-link active" aria-current="page" href="#"> <Link className="link" to="/">Home</Link></a> */}
-        </li>
-        <li className="nav-item">
-          {/* <a className="text-white bg-dark nav-link" href="#">Link</a> */}
-        </li>
-        {/* <li className="nav-item dropdown"> */}
-          {/* <a className="text-white nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> */}
-            Explore
-          {/* </a> */}
-          {/* <ul className="text-white bg-dark dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li><a className="text-white bg-dark dropdown-item" href="#">Action</a></li>
-            <li><a className="text-white bg-dark dropdown-item" href="#">Adventure</a></li>
-            <li><a className="text-white bg-dark dropdown-item" href="#">Comedy</a></li>
-            <li><a className="text-white bg-dark dropdown-item" href="#">Drama</a></li>
-            <li><a className="text-white bg-dark dropdown-item" href="#">Fantasy</a></li>
-            <li><a className="text-white bg-dark dropdown-item" href="#">Music</a></li>
-            <li><a className="text-white bg-dark dropdown-item" href="#">Mystery</a></li>
-            <li><a className="text-white bg-dark dropdown-item" href="#">Romance</a></li>
-            <li><a className="text-white bg-dark dropdown-item" href="#">Sci-Fi</a></li>
-            <li><a className="text-white bg-dark dropdown-item" href="#">Slice of Life</a></li>
-            <li><a className="text-white bg-dark dropdown-item" href="#">Sports</a></li>
-            <li><hr className="text-white bg-dark dropdown-divider"/></li>
-            <li><a className="text-white bg-dark dropdown-item" href="#">Something else here</a></li>
-          </ul> */}
-        {/* </li> */}
-        <li className="text-white nav-item">
-          <a className="text-white bg-dark nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Profile</a>
-        </li>
-      </ul>
-      <form className="text-white d-flex">
-          <Link className="link" to="/searchPage">
-          <img src={lupa} style={{ width: 50, height: 50}} alt="lupa"/>
-          </Link>
-          <Link className="link" to="/profile">
-          <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" />
-          </Link>
-        {/* <input className="text-white form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="text-white btn btn-outline-success" type="submit">Search</button> */}
-      </form>
-    </div>
-  </div>
-</nav>
-  
-    );
-    
 
+          <button className="text-white navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="text-white navbar-toggler-icon"></span>
+          </button>
+          
+          <div className="collapse navbar-collapse" id="navbarScroll">
+              <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style={{"--bs-scroll-height": "100px"}} >
+                {/* <li className="nav-item">
+                  <Link className="text-white bg-dark nav-link active" aria-current="page" to="/">Home</Link>
+                </li> */}
+
+                <li className="nav-item dropdown">
+                  <p className="text-white bg-dark nav-link dropdown-toggle"  id="dropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Explore
+                  </p>
+                  <ul className="text-white bg-dark dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                    <li><button className="buttonProfile"><Link to="/" className="text-white bg-dark dropdown-item">Shonen</Link></button></li>
+                    <li><Link to="/" className="text-white bg-dark dropdown-item">Adventure</Link></li>
+                    <li><Link to="/" className="text-white bg-dark dropdown-item">Comedy</Link></li>
+                    <li><Link to="/" className="text-white bg-dark dropdown-item">Drama</Link></li>
+                    <li><Link to="/" className="text-white bg-dark dropdown-item">Fantasy</Link></li>
+                    <li><Link to="/" className="text-white bg-dark dropdown-item">Music</Link></li>
+                    <li><Link to="/" className="text-white bg-dark dropdown-item">Mystery</Link></li>
+                    <li><Link to="/" className="text-white bg-dark dropdown-item">Romance</Link></li>
+                    <li><Link to="/" className="text-white bg-dark dropdown-item">Sci-Fi</Link></li>
+                    <li><Link to="/" className="text-white bg-dark dropdown-item">Slice of Life</Link></li>
+                    <li><Link to="/" className="text-white bg-dark dropdown-item">Sports</Link></li>
+                    <li><hr className="text-white bg-dark dropdown-divider"/></li>
+                  </ul>
+                </li>
+              </ul>
+                <form className="text-white d-flex">
+                    <Link className="link" to="/searchPage">
+                    <img src={lupa} style={{ width: 50, height: 50}} alt="lupa"/>
+                    </Link>
+                    <div className="dropdown">
+                    <button className="buttonProfile bg-dark btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" />
+                    </button>
+                      <ul className="buttonProfile dropdown-menu text-white bg-dark dropdown-menu">
+                        {isLoggedIn && (
+                          <>
+                          <li className="buttonProfile text-white  dropdown-item"  ><Link className="text-white  dropdown-item" to="/profile">
+                                Profile
+                              </Link>
+                          </li>
+                          <li className="buttonProfile text-white dropdown-item"><button className="buttonProfile text-white" onClick={logOutUser}>Logout</button></li>
+                          <span>{user && user.name}</span>
+                          </>
+                        )}
+                        {!isLoggedIn && (
+                          <>
+                            <li >
+                              <Link className="dropdown-item" to="/signup">
+                              {" "}<button className="buttonProfile text-white">Sign Up</button>{" "}
+                              </Link>
+                            </li>
+                            <li>
+                              <Link className="dropdown-item" to="/login">
+                              {" "}<button className="buttonProfile text-white">Login</button>{" "}
+                              </Link>
+                            </li>
+                          </>
+                        )}
+                      </ul>
+                    </div>
+                </form>
+                </div>
+    </div> 
+  </nav>
+  );
 }
 
 export default Navbar;

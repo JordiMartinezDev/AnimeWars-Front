@@ -3,7 +3,11 @@ import React from 'react';
 import { useParams} from 'react'
 
 function ShowAnime(props) {
+<<<<<<< HEAD
     // const {animeId} = useParams()
+=======
+    // const [animeId] = useParams()
+>>>>>>> oscar
     
     const {anime} = props;
     return (
