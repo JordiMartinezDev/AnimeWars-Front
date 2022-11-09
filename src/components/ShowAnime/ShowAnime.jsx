@@ -3,7 +3,7 @@ import React from 'react';
 import { useParams} from 'react'
 
 function ShowAnime(props) {
-    const [animeId] = useParams()
+    // const [animeId] = useParams()
     
     const {anime} = props;
     return (

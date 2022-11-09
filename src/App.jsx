@@ -20,6 +20,7 @@ import Episode from "./pages/Episode/Episode";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import ShowEpisodesId from "./pages/ShowEpisodeId/ShowEpisodeId";
 import ShowAnime from "./components/ShowAnime/ShowAnime";
+import FilterByCategoryPage from "./pages/FilterByCategoryPage/FilterByCategoryPage";
 
 function App() {
   return (
@@ -43,8 +44,11 @@ function App() {
         {/*Para probar */} 
         <Route path="/animes/:animeId" element={<ShowEpisodes></ShowEpisodes>} />
         <Route path="/episodesList" element={<ShowEpisodes></ShowEpisodes>}/>
-        <Route path="/animeList" element={<SeeMyAnimeList />}/>
+        <Route path="/animes" element={<SeeMyAnimeList />}/>
         <Route path="/episode/:episodeId" element={<Episode/>}/>
+
+
+        <Route path="/filterByCategory/" element={<FilterByCategoryPage></FilterByCategoryPage>}/>
       </Routes>
       {/* recordatori de posa Is Private a tot en lo que el redme ho posa */}
     </div>
