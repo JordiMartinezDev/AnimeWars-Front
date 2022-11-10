@@ -48,7 +48,7 @@ class AnimeApiService {
     return axios.put(apiUrl + "/episodes/" + episode._id, episode);
   }
   getEpisodesUser(user) {
-    console.log("USER IN API SERVICE∑", user);
+    console.log("USER IN API SERVICE", user);
 
     return axios.get(apiUrl + "/episodes/uploaded/" + user._id);
   }
