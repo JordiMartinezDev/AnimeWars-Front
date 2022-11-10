@@ -90,7 +90,7 @@ function Episode() {
                 {
                     console.log("COMMENTBYUSEROBJ:  ",comment.commentByUser)
                 }
-                return <p>{comment.text + " BY " + comment.commentByUser[0].username}</p>
+                return <ShowComments commentText={comment.text} commentUserName={comment.commentByUser[0].username} userProfileImage={comment.commentByUser[0].profileImg }></ShowComments>
                 
             }) }</h3>
 
