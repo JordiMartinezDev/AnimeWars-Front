@@ -7,17 +7,33 @@ import ShowAnime from "../../components/ShowAnime/ShowAnime";
 
 
 function FilterByCategoryPage(){
+<<<<<<< HEAD
+=======
+    // const [filt, setFilt] = useState([])
+>>>>>>> oscar
     const {category} = useParams();
     const [animeArray,setAnimeArray] = useState([])
 
     useEffect(() => {
+        // console.log("ENTRA AQUI");
         animeAPI.getAnimes()
         .then(results => {
+            const filteredAnimes = results.data.filter(anime => anime.category === category)
             //setFilt(results.data);
+<<<<<<< HEAD
             console.log(" Result GetAnimes() de FilterByCategory :  ", results.data)
             setAnimeArray(results.data.filter(anime => anime.category === category))
+=======
+            //console.log(" Result GetAnimes() de FilterByCategory :  ", results.data)
+            setAnimeArray(filteredAnimes)
+            // console.log("ANIME ARRAY: ", animeArray);
+>>>>>>> oscar
         })
-    }, []);
+        .catch((err) => {
+            console.log(err);
+        
+        })
+        }, [category]);
 
 // function ShonenHandler(){
 //     filt.filter((anime) => {
@@ -41,12 +57,13 @@ function FilterByCategoryPage(){
         <div className="row row-cols-5">
                {/* //Aqui haremos un map de los animes que el usuario tenga en su lista
         //y los mostraremos en una card(lo de la card hacerlo con bootstrap en ShowAnime.jsx)) */}
+            {/* {console.log("ANIMES ENTRA AQUI??", animeArray)} */}
          {animeArray.map(anime => {         
             return (
                 <div key={anime._id}>
-                {console.log("Aqui imprime el anime", anime)}
+                {<p>{anime.name}</p>}
 
-                    <ShowAnime anime={anime} /*userFollowArray={ userFollowArray}*/></ShowAnime> 
+                     {/* <ShowAnime anime={anime}></ShowAnime> */}
                 
                 </div>
 

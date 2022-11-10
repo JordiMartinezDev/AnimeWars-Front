@@ -69,11 +69,13 @@ function ShowAnime(props) {
                 <Link to={"/animes/" + anime._id}>
                         
         <img src={anime.animeImage} className="card-img-top" alt={anime.name} />
+        <img src="..." class="img-fluid" alt="..."></img>
         <div className="card-body">
+            
             <h5 className="card-title">Name: {anime.name}</h5>
             <p className="card-text">Description: {anime.description}</p>
             <p className="card-text">Genre: {anime.category}</p>
-            <p className="card-text">{anime.episodes}</p>
+            {/* <p className="card-text">{anime.episodes}</p> */}
                             </div>
                             </Link>
         </div>
