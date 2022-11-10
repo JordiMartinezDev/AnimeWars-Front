@@ -13,14 +13,30 @@ function SeeMyAnimeList(){
     const [tempUser, setTempUser] = useState([]);
     const [userFollowArray,setUserFollowArray] = useState([])
     
-    
-    const { user} = useContext(AuthContext);  
+    const { user } = useContext(AuthContext);  
 
 
     useEffect(() => {
         
         
-
+        animeAPI.getUser(tempUser)
+            .then(result => {
+                setUserFollowArray(result.data.followedByAnimeId)
+                console.log("FOLLOWING ANIME ARRAYS(ANIMELIST PAGE): ", userFollowArray)
+                animeAPI.getAnimes()
+            })
+            .catch(e => {
+                console.log(e)
+            })
+            animeAPI.getAnimes()
+            .then(results => {
+                //console.log("LISTA ANIMES", results.data);
+                setAnimes(results.data);
+            })
+            .catch((err) => {
+                console.log(err);
+                console.log("ERROR, USER NOT LOGGED AND TRYING to SEE ANIMELIST")
+            })
         
     }, [])
 
@@ -28,23 +44,24 @@ function SeeMyAnimeList(){
 
         setTempUser(user)
         
-    }, user)
+    }, [user])
     
     useEffect(() => {
-        animeAPI.getAnimes()
+        
+
+        animeAPI.getUser(tempUser)
+        .then(result => {
+            setUserFollowArray(result.data.followedByAnimeId)
+            console.log("FOLLOWING ANIME ARRAYS(ANIMELIST PAGE): ", userFollowArray)
+            animeAPI.getAnimes()
         .then(results => {
             //console.log("LISTA ANIMES", results.data);
             setAnimes(results.data);
         })
         .catch((err) => {
             console.log(err);
+            console.log("ERROR, USER NOT LOGGED AND TRYING to SEE ANIMELIST")
         })
-
-        animeAPI.getUser(tempUser)
-        .then(result => {
-            setUserFollowArray(result.data.followedByAnimeId)
-            console.log("FOLLOWING ANIME ARRAYS(ANIMELIST PAGE): ", userFollowArray)
-            
             
         })
             .catch(e => {
@@ -62,7 +79,7 @@ function SeeMyAnimeList(){
             return (
                 <div key={anime._id}>
 
-                    <ShowAnime anime={anime} userFollowArray={ userFollowArray}></ShowAnime> 
+                   {<ShowAnime anime={anime} userFollowArray={ userFollowArray}></ShowAnime>} 
                 
                 </div>
 

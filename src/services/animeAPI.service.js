@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "http://localhost:5005/api";
+const apiUrl = process.env.API_URL || "http://localhost:5005/api";
 
 class AnimeApiService {
   getAnimes() {
@@ -56,8 +56,11 @@ class AnimeApiService {
   }
 
   // ------ Comments ------
-  addComment(episode) {
-    return axios.post(apiUrl + "/episode/" + episode._id);
+  addComment(uploadComment) {
+    return axios.post(
+      apiUrl + "/episode/" + uploadComment.episodeId,
+      uploadComment
+    );
   }
 }
 

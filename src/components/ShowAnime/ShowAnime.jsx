@@ -69,9 +69,9 @@ function ShowAnime(props) {
 
     return (
         <>
-        <div class="col">
-        <div class="card-group">
-                    <div class="card">
+        <div className="col">
+        <div className="card-group">
+                    <div className="card">
                 <Link to={"/animes/" + anime._id}>
                         
         <img src={anime.animeImage} className="card-img-top" alt={anime.name} />
