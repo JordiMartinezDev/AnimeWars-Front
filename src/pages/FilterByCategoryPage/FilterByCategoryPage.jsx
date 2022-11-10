@@ -7,10 +7,7 @@ import ShowAnime from "../../components/ShowAnime/ShowAnime";
 
 
 function FilterByCategoryPage(){
-<<<<<<< HEAD
-=======
     // const [filt, setFilt] = useState([])
->>>>>>> oscar
     const {category} = useParams();
     const [animeArray,setAnimeArray] = useState([])
 
@@ -20,14 +17,9 @@ function FilterByCategoryPage(){
         .then(results => {
             const filteredAnimes = results.data.filter(anime => anime.category === category)
             //setFilt(results.data);
-<<<<<<< HEAD
-            console.log(" Result GetAnimes() de FilterByCategory :  ", results.data)
-            setAnimeArray(results.data.filter(anime => anime.category === category))
-=======
             //console.log(" Result GetAnimes() de FilterByCategory :  ", results.data)
             setAnimeArray(filteredAnimes)
             // console.log("ANIME ARRAY: ", animeArray);
->>>>>>> oscar
         })
         .catch((err) => {
             console.log(err);
