@@ -42,7 +42,7 @@ function Navbar() {
                     
           <div className="container-fluid">
             
-            <Link className="link text-danger navbar-brand" to="/">ANIMEWARS</Link>
+            <Link className="titlePage link text-danger navbar-brand" to="/">ANIMEWARS</Link>
           <button className="text-white navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
               <span className="text-white navbar-toggler-icon"></span>
           </button>
@@ -53,7 +53,7 @@ function Navbar() {
                   <Link className="text-white bg-dark nav-link active" aria-current="page" to="/">Home</Link>
                 </li> */}
                 <li className="nav-item dropdown">
-                  <p className="text-white bg-dark nav-link dropdown-toggle"  id="dropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <p className="explore text-white bg-dark nav-link dropdown-toggle"  id="dropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Explore
                   </p>
                   <ul className="text-white bg-dark dropdown-menu" aria-labelledby="navbarScrollingDropdown">
@@ -69,7 +69,7 @@ function Navbar() {
               </ul>
                 <form className="text-white d-flex">
                     <Link className="link" to="/searchPage">
-                    <img src={lupa} style={{ width: 50, height: 50}} alt="lupa"/>
+                    <img className="lupa" src={lupa} style={{ width: 40, height: 40}} alt="lupa"/>
                     </Link>
                     <div className="dropdown">
                     <button className="buttonProfile bg-dark btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

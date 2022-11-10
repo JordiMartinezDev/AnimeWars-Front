@@ -24,3 +24,15 @@
     background-color: transparent;
     border: none;
 }
+
+.titlePage{
+    font-size: 3rem;
+}
+
+.lupa{
+    margin-top: 17%;
+}
+.explore{
+    margin-top: 17%;
+    font-size: 1.4rem;
+}
