@@ -6,37 +6,30 @@ import animeAPI from "../../services/animeAPI.service";
 import ProfileAnimeCreatedBox from "../../components/ProfileAnimeCreatedBox/ProfileAnimeCreatedBox";
 import ProfileFavoriteBox from "../../components/ProfileFavoriteBox/Componente ProfileFavoriteBox";
 
+import { AuthContext } from "../../context/auth.context";
+import { useContext } from "react";
+
+
+
+
 function ProfilePage() {
+  const {user}= useContext(AuthContext)
+  console.log("user bo: ", user)
+  console.log("imagenProfile bo: ", user?.backgroundImage)
 
-  // const submitHandler = (e) => {
-  //   const [form, setForm] = useState({image: ""});
-
-  //   const navigate = useNavigate();
-
-    
-  //   const handleImage = (e) => {
-  //       const copiaForm = {...form};
-  //       copiaForm.image = e.target.value;
-  //       setForm(copiaForm)
-  //   }
-
-    
-  //   e.preventDefault();
-  //   const newProfileImage = {
-  //       img: form.image,
-  //   };
-    
-  //   animeAPI.addApartment(newProfileImage)
-  //   .then(results => {
-  //       navigate("/");
-  //   })
-  //   .catch(err => {
-  //       // navigate("/error");
-  //   })
-  // }
+  
   
    return (
     <div>
+      {/* <img className="ImgProfile" src="https://themoodproject.com/wp-content/uploads/2020/09/default-team.png" alt="" /> */}
+      {/* <a href="/editProfileImg/:userId">Edit profile</a> */}
+      <Link to="/editProfileImg/:userId">Edit profile</Link>
+      <p>{user?.email}</p>
+      <p>{user?.username}</p>
+      <img src={user?.profileImg} alt="Profile Image of CurentUser" />
+      <img src={user?.backgroundImage} alt="Background Image of CurrentUser" />
+      
+      
     <ProfileAnimeCreatedBox></ProfileAnimeCreatedBox>
     
   </div>

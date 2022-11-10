@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      {/* <AuthProviderWrapper> */}
+      
       <Routes>
 
         <Route path="/" element={<HomePage />} />
@@ -50,7 +50,7 @@ function App() {
 
         <Route path="/filterByCategory/:category" element={<FilterByCategoryPage></FilterByCategoryPage>}/>
       </Routes>
-      {/* </AuthProviderWrapper> */}
+      
       {/* recordatori de posa Is Private a tot en lo que el redme ho posa */}
     </div>
   );
