@@ -10,13 +10,26 @@ import ShowEpisodesId from '../ShowEpisodeId/ShowEpisodeId';
 function SeeMyAnimeList(){
 
     const [animes, setAnimes] = useState([]);
-    const [temporal, setTemporal] = useState([]);
+    const [tempUser, setTempUser] = useState([]);
     const [userFollowArray,setUserFollowArray] = useState([])
     
     
     const { user} = useContext(AuthContext);  
 
 
+    useEffect(() => {
+        
+        
+
+        
+    }, [])
+
+    useEffect(()=>{
+
+        setTempUser(user)
+        
+    }, user)
+    
     useEffect(() => {
         animeAPI.getAnimes()
         .then(results => {
@@ -26,21 +39,18 @@ function SeeMyAnimeList(){
         .catch((err) => {
             console.log(err);
         })
-        console.log("This is user in SeeMyAnimeList constructor", user)
-        // AQUUI ESTA USR BUIT
-        animeAPI.getUser(user)
+
+        animeAPI.getUser(tempUser)
         .then(result => {
-            // setUserFollowArray(result.data.followedByAnimeId)
-            console.log("FOLLOWING ANIME ARRAYS: ", userFollowArray)
+            setUserFollowArray(result.data.followedByAnimeId)
+            console.log("FOLLOWING ANIME ARRAYS(ANIMELIST PAGE): ", userFollowArray)
             
             
         })
             .catch(e => {
             console.log(e)
-        })
-
-        
-    }, [])
+            })
+    },[tempUser])
 
     return (
         <div className="container text-center">

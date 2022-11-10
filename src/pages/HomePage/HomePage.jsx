@@ -10,13 +10,10 @@ function HomePage() {
   
 
   useEffect(() => {
-    console.log(" Result GetAnimes() :  ")
     animeAPI.getAnimes()
     .then(results => {
       setAnimes(results.data);
-      console.log(" Result GetAnimes() :  ", results.data)
     })
-    console.log(" Result GetAnimes() :  ")
   }, []);
   
   return (

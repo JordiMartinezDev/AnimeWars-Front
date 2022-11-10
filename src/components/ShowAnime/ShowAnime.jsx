@@ -13,8 +13,8 @@ function ShowAnime(props) {
     const { user} = useContext(AuthContext);  
 
     const {anime,userFollowArray} = props;
-
     const [animeL, setAnime] = useState([]);
+    const [follow, setFollow] = useState(false);
     // const {anime} = props;
 
     useEffect( ()=> {
@@ -24,9 +24,12 @@ function ShowAnime(props) {
                 setAnime(response.data)
             })
         
-
+            userFollows()
     },[])
 
+    useEffect(() => {
+        
+    })
     function handleLike() {
         
         const uploadData = new FormData();
@@ -44,21 +47,24 @@ function ShowAnime(props) {
             .then(result => {
                 console.log(result)
             })
-        .catch(e => console.log(e))
-    }
-    function handleUnlike() {
+            .catch(e => console.log(e))
         
+        setFollow(!follow)
     }
+    
     function userFollows() {
         console.log("entering in userFollows?", userFollowArray.length)
-        
-        if (userFollowArray.length > 0)
-        userFollowArray.map(animeId => {
-            console.log("AnimeId to check FOLLOWS: ",animeId)
-            if (animeId == anime._id) return true;
-        })
+        let following = false
+        if (userFollowArray.length > 0) {
+            userFollowArray.map(animeId => {
+                console.log("AnimeId to check FOLLOWS: ", animeId)
+                console.log("This anime's id is : ", anime._id)
+                if (animeId == anime._id) following = true;
+                
+            })
+        }
 
-        return false;
+        setFollow(following)
     }
 
     return (
@@ -80,7 +86,7 @@ function ShowAnime(props) {
         </div>
             </div>
             
-            {userFollows() ? <button onClick={handleUnlike}> Unfollow</button> : <button onClick={handleLike}> Follow</button>}
+            {follow ? <button onClick={handleLike}> Unfollow</button> : <button onClick={handleLike}> Follow</button>}
             
         </>
     );

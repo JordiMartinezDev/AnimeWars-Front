@@ -51,7 +51,8 @@ class AnimeApiService {
   //-------- USER ---------
 
   getUser(user) {
-    return axios.get(apiUrl + "/user", user);
+    console.log("USER IN API SERVICE", user);
+    return axios.put(apiUrl + "/user", user);
   }
 
   // ------ Comments ------
