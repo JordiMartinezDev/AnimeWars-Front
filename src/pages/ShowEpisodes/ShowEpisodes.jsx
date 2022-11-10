@@ -33,7 +33,6 @@ function ShowEpisodes(){
     // }, [])
 
     useEffect(() => {
-        console.log("USEFFECt SHOWEPISODES")
         animeAPI.getAnime(animeId)
         .then(results => {
             console.log("LISTA EPISODES ENTRA AQUI?", results.data);

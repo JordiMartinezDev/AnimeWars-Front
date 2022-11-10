@@ -12,26 +12,19 @@ function Episode() {
     const [newComment, setNewComment] = useState();
     const { params } = useParams();
     const { user } = useContext(AuthContext)
-
-    const [commentsArray, setCommentsArray] = useState();
+    const [commentsArray, setCommentsArray] = useState([]);
 
     // const [playing, setPlaying] = React.useState(false)
    
     useEffect(() => {
         console.log("EPISODE", episodeId)
-        animeAPI.getEpisode(episodeId)
-        .then(results => {
-            setEpisode(results.data);
-            console.log("RESULTS.DATA AFTER POPULATE: ", results.data)
-            setCommentsArray(results.data.commentId)
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+        updateComments()
 
     }, [])
     
-    
+    useEffect(() => {
+        console.log("hello")
+    },[commentsArray])
     function submitComment(e) {
         //push comment to DB
         e.preventDefault();
@@ -51,7 +44,8 @@ function Episode() {
         animeAPI.addComment(uploadComment)
                 .then(results => {
                     console.log("aaaaa: ", results.data)
-                    //setComment, refresh etc
+                    updateComments();
+                    
                 })
                 .catch(err => {
                     console.log("Error CreateEpisode.JSX --> : ", err);
@@ -61,6 +55,17 @@ function Episode() {
 
         setNewComment(e.target.value)
         
+    }
+    function updateComments() {
+        animeAPI.getEpisode(episodeId)
+        .then(results => {
+            setEpisode(results.data);
+            console.log("RESULTS.DATA AFTER POPULATE: ", results.data)
+            setCommentsArray(results.data.commentId)
+        })
+        .catch((err) => {
+            console.log(err);
+        })
     }
 
     
@@ -90,13 +95,13 @@ function Episode() {
                 {
                     console.log("COMMENTBYUSEROBJ:  ",comment.commentByUser)
                 }
-                return <ShowComments commentText={comment.text} commentUserName={comment.commentByUser[0].username} userProfileImage={comment.commentByUser[0].profileImg }></ShowComments>
+                return <ShowComments commentText={comment.text} commentUserName={comment?.commentByUser[0].username} userProfileImage={comment?.commentByUser[0].profileImg }></ShowComments>
                 
             }) }</h3>
 
             <form onSubmit={submitComment}>
 
-            <textarea onChange={handleComment} id="exampleFormControlTextArea" rows="3" value={newComment}placeholder="Write comment..."/>
+            <textarea onChange={handleComment} id="exampleFormControlTextArea" rows="3" value={newComment} placeholder="Write comment..."/>
 
             <button type="submit" className="btn btn-primary">Comment</button>
                 

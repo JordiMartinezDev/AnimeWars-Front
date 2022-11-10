@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 
-function ShowComments({ commentText,commentUserName,userProfileImage }) {
+function ShowComments({ commentText,commentUserName,userProfileImage,updateComments,commentId }) {
     
     useEffect(() => {
         
-    },[])
+    }, [])
+    
+    
 
 
     return (
@@ -13,7 +15,7 @@ function ShowComments({ commentText,commentUserName,userProfileImage }) {
                 <img className="card-img-top" src={ userProfileImage}/>
                 <div className="card-body">
                     <h3 className="card-title">{commentUserName }</h3>
-                    <h8 className="card-text"> { commentText}</h8>
+                    <h8 className="card-text"> {commentText}</h8>
     
             </div>
             </div> 

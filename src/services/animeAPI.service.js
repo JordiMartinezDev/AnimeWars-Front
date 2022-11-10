@@ -47,11 +47,15 @@ class AnimeApiService {
   editEpisode(episode) {
     return axios.put(apiUrl + "/episodes/" + episode._id, episode);
   }
+  getEpisodesUser(user) {
+    console.log("USER IN API SERVICE∑", user);
+
+    return axios.get(apiUrl + "/episodes/uploaded/" + user._id);
+  }
 
   //-------- USER ---------
 
   getUser(user) {
-    console.log("USER IN API SERVICE", user);
     return axios.put(apiUrl + "/user", user);
   }
 

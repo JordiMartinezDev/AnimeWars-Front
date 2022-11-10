@@ -7,37 +7,35 @@ import {Navigate, useNavigate} from 'react-router-dom';
 // import Validator from 'validator'
 import { useEffect } from 'react';
 import Validator from 'validator';
+import { AuthContext } from "../../context/auth.context";
+import { useContext } from "react";
 
 
 
 function ProfileAnimeCreatedBox () {
     
-    // let randomSelect = Math.floor(Math.random()*data.length);
-    // let dataView = data.slice(0,4);
+    const [animes, setAnimes] = useState([])
+    const {user} = useContext(AuthContext)
 
-    // useEffect (()=>{
-    //     animeAPI.getAnimes()
-    //     .then(results=>{
-    //         // console.log ("Dades: ",results.data)
-    //         // return(<option value={anime.name}>{anime.name}</option>);
-    //         setAnimeNames(results.data) //Aqui gurdem la "Base de Dades" a la variable de animeNames
-    //         console.log ( "Base de dades: ", results.data)
-            
-    //     })
-    //     .catch(err=>{
-    //         return("error en la crida");
-    //     })
-                        
-    //     }, [])
     useEffect(()=>{
-        
-    })
-    
-    
+        animeAPI.getAnimes()
+        .then(results => {
+            //console.log("LISTA ANIMES", results.data);
+            setAnimes(results.data);
+        })
+        .catch((err) => {
+            console.log(err);
+            console.log("ERROR, USER NOT LOGGED AND TRYING to SEE ANIMELIST")
+        }) 
+    },[])
     
    
+    function checkUploadedByUser()
+    {
+        
+    }
+   
 
-    console.log ("dades :")
     return (
         <div>
             <h1>Hola desde component ProfileAnimeCreatedBox</h1>
