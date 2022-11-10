@@ -41,7 +41,7 @@ function EditProfileImg() {
       navigate("/profile")
     })
     .catch(err=>{
-      return("error en la crida");
+      console.log("error en la crida", err);
   })
 
   }
