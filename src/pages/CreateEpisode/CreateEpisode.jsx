@@ -21,14 +21,13 @@ function CreateEpisode() {
     const [episodeImage, setEpisodeImage] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
     const [animeNames, setAnimeNames] = useState([]);
-    const { user } = useContext(AuthContext);  
-    const [animeChosenByUser, setAnimeChosenByUser] = useState();
+    const { user} = useContext(AuthContext);  
     
     // const [followedUsers, setFollowedUser]=useState([{}]);
     const navigate = useNavigate();
    
      const handleAnime =(e)=>{
-        setAnime(e.target.value);
+         setAnime(e.target.value);
        
      }
     // const handleCategory =(e)=>{
@@ -59,9 +58,7 @@ function CreateEpisode() {
         uploadData.append("isPremium", false)
         uploadData.append("episodeUrl", animeUrl)
         uploadData.append("userId", user._id)
-        // uploadData.append("animeId",anime._id)
           // lo vermell es igual al model
-        
         
         console.log(" UPLOADDATA ---> ", uploadData)
         // If anime URL is correct, submit Episode to DB, else... error message
@@ -81,7 +78,7 @@ function CreateEpisode() {
                 })
         }
         else {
-            setErrorMessage('Not a valid URL')
+            setErrorMessage('Not a valid URL')  
             
         }
     };
@@ -133,10 +130,9 @@ function CreateEpisode() {
                     {/* Aqui hem de fer un map, i que cada opccio sigui un anime ja creat */}
                     <option selected>Animes</option> 
                     {animeNames.map(anime =>{
-                        return ( <option onChange={()=> setAnimeChosenByUser(anime)} value={anime.name} >{anime.name}</option>);
+                        return ( <option value={anime.name} >{anime.name}</option>);
                     })
                     }
-                    {console.log("AnimeChosenByUser",animeChosenByUser)}
                     
                     
                 </select>

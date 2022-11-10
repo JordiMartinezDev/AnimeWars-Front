@@ -7,7 +7,7 @@ import { AuthContext } from '../../context/auth.context';
 
 
 function ShowAnime(props) {
-    // const [animeId] = useParams()
+    // const [animeId] = useParams()ente
     //  const {animeId} = useParams()
     
     const { user} = useContext(AuthContext);  

@@ -50,8 +50,8 @@ class AnimeApiService {
 
   //-------- USER ---------
 
-  getUser() {
-    return axios.get(apiUrl + "/user");
+  getUser(user) {
+    return axios.get(apiUrl + "/user", user);
   }
 
   // ------ Comments ------

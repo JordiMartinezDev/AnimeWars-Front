@@ -13,8 +13,9 @@ function SeeMyAnimeList(){
     const [temporal, setTemporal] = useState([]);
     const [userFollowArray,setUserFollowArray] = useState([])
     
-    //context
-    // const {user} = useContext(AuthContext);
+    
+    const { user} = useContext(AuthContext);  
+
 
     useEffect(() => {
         animeAPI.getAnimes()
@@ -25,15 +26,20 @@ function SeeMyAnimeList(){
         .catch((err) => {
             console.log(err);
         })
-
-        animeAPI.getUser().then(result => {
-            setUserFollowArray(result.data.followedByAnimeId)
+        console.log("This is user in SeeMyAnimeList constructor", user)
+        // AQUUI ESTA USR BUIT
+        animeAPI.getUser(user)
+        .then(result => {
+            // setUserFollowArray(result.data.followedByAnimeId)
+            console.log("FOLLOWING ANIME ARRAYS: ", userFollowArray)
+            
+            
         })
-            .catch(e=>{
+            .catch(e => {
             console.log(e)
         })
 
-
+        
     }, [])
 
     return (
