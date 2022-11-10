@@ -1,3 +1,5 @@
+
+import "./ShowAnime.css"
 import {Link} from 'react-router-dom';
 import React from 'react';
 import { useParams} from 'react'
@@ -71,25 +73,26 @@ function ShowAnime(props) {
         <>
         <div className="col">
         <div className="card-group">
-                    <div className="card">
+                <div className="fondoCard card">
                 <Link to={"/animes/" + anime._id}>
                         
-        <img src={anime.animeImage} className="card-img-top" alt={anime.name} />
-        <img src="..." class="img-fluid" alt="..."></img>
-        <div className="card-body">
-            
-            <h5 className="card-title">Name: {anime.name}</h5>
-            <p className="card-text">Description: {anime.description}</p>
-            <p className="card-text">Genre: {anime.category}</p>
+        <img src={anime.animeImage} className="tamanoImage card-img-top" alt={anime.name} />
+        <div className="textoLink card-body">
+            <h5 className="card-title textoLink">Name: {anime.name}</h5>
+            <p className="card-text textoLink">Description: {anime.description}</p>
+            <p className="card-text textoLink">Genre: {anime.category}</p>
             {/* <p className="card-text">{anime.episodes}</p> */}
-                            </div>
-                            </Link>
+        </div>
+            </Link>
         </div>
         </div>
-            </div>
+      
+        </div>
+        
             
-            {follow ? <button onClick={handleLike}> Unfollow</button> : <button onClick={handleLike}> Follow</button>}
+            {follow ? <button class="btn btn-danger" onClick={handleLike}> Unfollow</button> : <button className="btn btn-primary" onClick={handleLike}> Follow</button>}
             
+            <br></br><br></br><br></br>
         </>
     );
 }

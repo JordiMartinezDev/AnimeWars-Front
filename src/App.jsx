@@ -22,6 +22,8 @@ import ShowEpisodesId from "./pages/ShowEpisodeId/ShowEpisodeId";
 import ShowAnime from "./components/ShowAnime/ShowAnime";
 import FilterByCategoryPage from "./pages/FilterByCategoryPage/FilterByCategoryPage";
 import {AuthProviderWrapper} from "./context/auth.context";
+import AdminPage from "./pages/AdminPage/AdminPage";
+import foter from "./components/foter/foter";
 
 
 function App() {
@@ -48,11 +50,13 @@ function App() {
         <Route path="/animes" element={<SeeMyAnimeList />}/>
         <Route path="/episode/:episodeId" element={<Episode/>}/>
 
+        <Route path="/adminDeleteEpisode/:episodeId" element={<AdminPage></AdminPage>} />
 
         <Route path="/filterByCategory/:category" element={<FilterByCategoryPage></FilterByCategoryPage>}/>
       </Routes>
       
       {/* recordatori de posa Is Private a tot en lo que el redme ho posa */}
+      <foter></foter>
     </div>
   );
 }

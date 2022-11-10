@@ -1,14 +1,19 @@
+
 import {useEffect, useState} from 'react';
 import animeAPI from '../../services/animeAPI.service';
 import {useContext} from 'react';
 import {AuthContext} from '../../context/auth.context';
 import ShowAnime from '../../components/ShowAnime/ShowAnime';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import ShowEpisodesId from '../ShowEpisodeId/ShowEpisodeId';
+import ShowEpisode from '../../components/ShowEpisode/ShowEpisode';
+
+// import {AuthContext} from '../../context/auth.context';
 
 
-function SeeMyAnimeList(){
 
+
+function AdminPage(){
     const [animes, setAnimes] = useState([]);
     const [tempUser, setTempUser] = useState([]);
     const [userFollowArray,setUserFollowArray] = useState([])
@@ -71,7 +76,7 @@ function SeeMyAnimeList(){
 
     return (
         <div className="container text-center">
-        <h1 className='text-white'>Animes</h1>
+        <h1 className='text-white'>My Anime list</h1>
         <br></br>
         <div className="row row-cols-5">
                {/* //Aqui haremos un map de los animes que el usuario tenga en su lista
@@ -93,5 +98,6 @@ function SeeMyAnimeList(){
 }
 
 
-export default SeeMyAnimeList;
+export default AdminPage;
 
+ {/* <button onClick={deleteHandler(episode._id)}>Delete</button> */}

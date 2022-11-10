@@ -63,7 +63,6 @@ function ShowEpisodes(){
                 </div>
             )
         })}
-         
         </div>
         </div>
     );
