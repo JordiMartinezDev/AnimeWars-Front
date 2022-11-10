@@ -27,9 +27,8 @@ function CreateEpisode() {
     const navigate = useNavigate();
    
      const handleAnime =(e)=>{
-        setAnime(e.target.value);
-        console.log ("anime name: ", anime)
-        console.log ("anime name target: ", e.target.value)
+         setAnime(e.target.value);
+       
      }
     // const handleCategory =(e)=>{
     //     setCategory(e.target.value);
@@ -58,7 +57,8 @@ function CreateEpisode() {
         uploadData.append("episodeImage",episodeImage)
         uploadData.append("isPremium", false)
         uploadData.append("episodeUrl", animeUrl)
-        uploadData.append("userId",user._id)  // lo vermell es igual al model
+        uploadData.append("userId", user._id)
+          // lo vermell es igual al model
         
         console.log(" UPLOADDATA ---> ", uploadData)
         // If anime URL is correct, submit Episode to DB, else... error message
@@ -79,7 +79,7 @@ function CreateEpisode() {
                 })
         }
         else {
-            setErrorMessage('Not a valid URL')
+            setErrorMessage('Not a valid URL')  
             
         }
     };

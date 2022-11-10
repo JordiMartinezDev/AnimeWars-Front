@@ -10,31 +10,64 @@ import ShowEpisodesId from '../ShowEpisodeId/ShowEpisodeId';
 function SeeMyAnimeList(){
 
     const [animes, setAnimes] = useState([]);
-    const [temporal, setTemporal] = useState([]);
+    const [tempUser, setTempUser] = useState([]);
     const [userFollowArray,setUserFollowArray] = useState([])
     
-    //context
-    // const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);  
+
 
     useEffect(() => {
-        animeAPI.getAnimes()
+        
+        
+        animeAPI.getUser(tempUser)
+            .then(result => {
+                setUserFollowArray(result.data.followedByAnimeId)
+                console.log("FOLLOWING ANIME ARRAYS(ANIMELIST PAGE): ", userFollowArray)
+                animeAPI.getAnimes()
+            })
+            .catch(e => {
+                console.log(e)
+            })
+            animeAPI.getAnimes()
+            .then(results => {
+                //console.log("LISTA ANIMES", results.data);
+                setAnimes(results.data);
+            })
+            .catch((err) => {
+                console.log(err);
+                console.log("ERROR, USER NOT LOGGED AND TRYING to SEE ANIMELIST")
+            })
+        
+    }, [])
+
+    useEffect(()=>{
+
+        setTempUser(user)
+        
+    }, [user])
+    
+    useEffect(() => {
+        
+
+        animeAPI.getUser(tempUser)
+        .then(result => {
+            setUserFollowArray(result.data.followedByAnimeId)
+            console.log("FOLLOWING ANIME ARRAYS(ANIMELIST PAGE): ", userFollowArray)
+            animeAPI.getAnimes()
         .then(results => {
             //console.log("LISTA ANIMES", results.data);
             setAnimes(results.data);
         })
         .catch((err) => {
             console.log(err);
+            console.log("ERROR, USER NOT LOGGED AND TRYING to SEE ANIMELIST")
         })
-
-        animeAPI.getUser().then(result => {
-            setUserFollowArray(result.data.followedByAnimeId)
+            
         })
-            .catch(e=>{
+            .catch(e => {
             console.log(e)
-        })
-
-
-    }, [])
+            })
+    },[tempUser])
 
     return (
         <div className="container text-center">
@@ -47,7 +80,7 @@ function SeeMyAnimeList(){
             return (
                 <div key={anime._id}>
 
-                    <ShowAnime anime={anime} userFollowArray={ userFollowArray}></ShowAnime> 
+                   {<ShowAnime anime={anime} userFollowArray={ userFollowArray}></ShowAnime>} 
                 
                 </div>
 

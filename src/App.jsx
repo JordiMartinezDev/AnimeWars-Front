@@ -23,6 +23,7 @@ import ShowAnime from "./components/ShowAnime/ShowAnime";
 import FilterByCategoryPage from "./pages/FilterByCategoryPage/FilterByCategoryPage";
 import {AuthProviderWrapper} from "./context/auth.context";
 
+
 function App() {
   return (
     <div className="App">

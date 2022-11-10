@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react'
+import { useContext } from 'react';
 import ReactPlayer from 'react-player'
 import { useParams } from 'react-router-dom'
 import ShowComments from '../../components/ShowComments/ShowComments';
+import { AuthContext } from '../../context/auth.context';
 import animeAPI from '../../services/animeAPI.service'
 
 function Episode() {
     const [episode, setEpisode] = useState([]);
     const { episodeId } = useParams();
-    const { newComment, setNewComment } = useState();
-    console.log(episodeId)
+    const [newComment, setNewComment] = useState();
+    const { params } = useParams();
+    const { user } = useContext(AuthContext)
 
+    const [commentsArray, setCommentsArray] = useState();
 
     // const [playing, setPlaying] = React.useState(false)
    
@@ -17,26 +21,34 @@ function Episode() {
         console.log("EPISODE", episodeId)
         animeAPI.getEpisode(episodeId)
         .then(results => {
-            console.log("LISTA EPISODES", results.data);
             setEpisode(results.data);
+            console.log("RESULTS.DATA AFTER POPULATE: ", results.data)
+            setCommentsArray(results.data.commentId)
         })
         .catch((err) => {
             console.log(err);
         })
+
     }, [])
+    
     
     function submitComment(e) {
         //push comment to DB
         e.preventDefault();
-    
+        
         
         const uploadData = new FormData();
-        uploadData.append("episode", episode)
+        uploadData.append("episode", episodeId)
         uploadData.append("newComment", newComment)
        
 
 
-        animeAPI.addComment(uploadData)
+        const uploadComment = {
+            episodeId: episodeId,
+            newComment: newComment,
+            user: user,
+        }
+        animeAPI.addComment(uploadComment)
                 .then(results => {
                     console.log("aaaaa: ", results.data)
                     //setComment, refresh etc
@@ -45,12 +57,17 @@ function Episode() {
                     console.log("Error CreateEpisode.JSX --> : ", err);
                 })
     }
+    function handleComment(e) {
 
+        setNewComment(e.target.value)
+        
+    }
+
+    
 
     return (
         <div>
             <h1> One Episode Page</h1>
-            {/* <p>{console.log("sdsdasdaasd", episode._id)}</p> */}
             <ReactPlayer
             url={episode.episodeUrl}
             width="100%"
@@ -61,15 +78,25 @@ function Episode() {
             />
 
             <h2> Comments </h2>
-            {(episode.commentId)?
+            
+            {/* {episode.commentId?
             episode.commentId.map(comment => {
-                <ShowComments comment={comment} key={ comment._id}></ShowComments>
+                <ShowComments comment={comment.text} key={ comment}></ShowComments>
+            {console.log("EPISODE COMMENT -> ", episode.commentId)}
                 
-            }) : <div></div>}
+            }) : <ShowComments comment={episodeId}></ShowComments>} */}
+
+            <h3>{(commentsArray?.length > 0) && commentsArray?.map(comment => {
+                {
+                    console.log("COMMENTBYUSEROBJ:  ",comment.commentByUser)
+                }
+                return <ShowComments commentText={comment.text} commentUserName={comment.commentByUser[0].username} userProfileImage={comment.commentByUser[0].profileImg }></ShowComments>
+                
+            }) }</h3>
 
             <form onSubmit={submitComment}>
 
-            <textarea id="exampleFormControlTextArea" rows="3"/>
+            <textarea onChange={handleComment} id="exampleFormControlTextArea" rows="3" value={newComment}placeholder="Write comment..."/>
 
             <button type="submit" className="btn btn-primary">Comment</button>
                 
