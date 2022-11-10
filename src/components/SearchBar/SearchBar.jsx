@@ -57,7 +57,7 @@ function SearchBar() {
 
     return (
         <div>
-            <h1>Search Bar here</h1>
+            <h1 className="text-white">Search Bar here</h1>
             <form>
                 <div className='search-wrapper'>
                     <div className="form-group">
@@ -84,3 +84,4 @@ function SearchBar() {
 }
 
 export default SearchBar;
+

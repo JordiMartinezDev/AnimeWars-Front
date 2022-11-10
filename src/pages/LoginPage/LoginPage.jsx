@@ -46,28 +46,26 @@ function LoginPage() {
 
   return (
     <div className="LoginPage">
-      <h1>Login</h1>
-
+      <h1 className="text-white">Login</h1>
+      <br></br>
       <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
-
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
-
-        <button type="submit">Login</button>
+      <div class="mb-3 text-white" >
+        <label for="exampleInputEmail1" class="form-label">Email:</label>
+        <input type="email" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value={email} onChange={handleEmail} />
+      </div>
+      <div class="mb-3 text-white">
+        <label for="exampleInputPassword1" class="form-label">Password:</label>
+        <input type="password" id="exampleInputPassword1" name="password" value={password} onChange={handlePassword}/>
+      </div>
+        <button class="btn btn-primary" type="submit">Login</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Don't have an account yet?</p>
+      <div id="emailHelp" class="form-text text-white">Don't have an account yet?</div>
       <Link to={"/signup"}> Sign Up</Link>
     </div>
   );
 }
 
 export default LoginPage;
+

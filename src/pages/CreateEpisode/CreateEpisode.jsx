@@ -66,6 +66,7 @@ function CreateEpisode() {
             animeAPI.addEpisode(uploadData)
                 .then(results => {
                     console.log("aaaaa: ", results.data)
+                    
                     navigate("/");
                 })
                 .catch(err => {
@@ -116,7 +117,7 @@ function CreateEpisode() {
 
     return (
         <div className='CreateEpisode'>
-            <h1> Create Episode Form Page</h1>
+            <h1 className="text-white"> Create Episode Form Page</h1>
            
             <form onSubmit={submitHandler} action="/createEpisode" encType="multipart/form-data">
                 
@@ -147,8 +148,9 @@ function CreateEpisode() {
                 </div>
                
                
-                
+              
                 <button type="submit" className="btn btn-primary">Submit</button>
+              
             </form> 
 
         </div>
@@ -156,3 +158,7 @@ function CreateEpisode() {
 }
 
 export default CreateEpisode;
+
+{/* <div class="alert alert-primary" role="alert">
+  A simple primary alert—check it out!
+</div> */}

@@ -52,34 +52,32 @@ function SignupPage() {
 
   return (
     <div className="SignupPage">
-      <h1>Sign Up</h1>
-
+      <h1 className="text-white">Sign Up</h1>
+      <br></br>
       <form onSubmit={handleSignupSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
-
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
-
-        <label>Userame:</label>
+      <div className="mb-3 text-white" >
+        <label for="exampleInputEmail1" className="form-label">Email address :</label>
+        <input type="email" /*class="form-control"*/ id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value={email} onChange={handleEmail} />
+        <div id="emailHelp" className="form-text text-white">We'll never share your email with anyone else.</div>
+      </div>
+      <div className="mb-3 text-white">
+        <label for="exampleInputPassword1" className="form-label">Password:</label>
+        <input type="password" /*class="form-control"*/ id="exampleInputPassword1" name="password" value={password} onChange={handlePassword}/>
+      </div>
+      <div className="mb-3 form-check text-white"> 
+        <label className="form-check-label text-white" for="exampleCheck1">Userame: </label>
         <input type="text" name="username" value={username} onChange={handleUserName} />
-
-        
-
-        <button type="submit">Sign Up</button>
+        </div>
+        <button className="btn btn-primary" type="submit">Sign Up</button>
       </form>
-
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Already have account?</p>
+      <div id="emailHelp" className="form-text text-white">Already have account?</div>
       <Link to={"/login"}> Login</Link>
     </div>
   );
 }
 
 export default SignupPage;
+
+

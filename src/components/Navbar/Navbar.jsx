@@ -38,7 +38,7 @@ function Navbar() {
     //     </>
     //   )}
     // </nav>
-  <nav className="navbar navbar-expand-lg navbar-darkt bg-dark">
+  <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                     
           <div className="container-fluid">
             
@@ -57,18 +57,13 @@ function Navbar() {
                     Explore
                   </p>
                   <ul className="text-white bg-dark dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                    <li><button className="buttonProfile"><Link to="/filterByCategory/shonen" className="text-white bg-dark dropdown-item">Shonen</Link></button></li>
-                    <li><Link to="/" className="text-white bg-dark dropdown-item">Adventure</Link></li>
-                    <li><Link to="/" className="text-white bg-dark dropdown-item">Comedy</Link></li>
-                    <li><Link to="/" className="text-white bg-dark dropdown-item">Drama</Link></li>
-                    <li><Link to="/" className="text-white bg-dark dropdown-item">Fantasy</Link></li>
-                    <li><Link to="/" className="text-white bg-dark dropdown-item">Music</Link></li>
-                    <li><Link to="/" className="text-white bg-dark dropdown-item">Mystery</Link></li>
-                    <li><Link to="/" className="text-white bg-dark dropdown-item">Romance</Link></li>
-                    <li><Link to="/" className="text-white bg-dark dropdown-item">Sci-Fi</Link></li>
-                    <li><Link to="/" className="text-white bg-dark dropdown-item">Slice of Life</Link></li>
-                    <li><Link to="/" className="text-white bg-dark dropdown-item">Sports</Link></li>
-                    <li><hr className="text-white bg-dark dropdown-divider"/></li>
+                    <li><button className="buttonProfile"><Link to="/filterByCategory/Shonen" className="text-white bg-dark dropdown-item">Shonen</Link></button></li>
+                    <li><button className="buttonProfile"><Link to="/filterByCategory/Drama" className="text-white bg-dark dropdown-item">Drama</Link></button></li>
+                    <li><button className="buttonProfile"><Link to="/filterByCategory/Action" className="text-white bg-dark dropdown-item">Action</Link></button></li>
+                    <li><button className="buttonProfile"><Link to="/filterByCategory/Adventure" className="text-white bg-dark dropdown-item">Adventure</Link></button></li>
+                    <li><button className="buttonProfile"><Link to="/filterByCategory/Mystery" className="text-white bg-dark dropdown-item">Mystery</Link></button></li>
+                    <li><button className="buttonProfile"><Link to="/filterByCategory/Romance" className="text-white bg-dark dropdown-item">Romance</Link></button></li>
+                    {/* <li><hr className="text-white bg-dark dropdown-divider"/></li> */}
                   </ul>
                 </li>
               </ul>

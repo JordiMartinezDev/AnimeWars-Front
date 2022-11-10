@@ -13,9 +13,9 @@ function HomePage() {
     animeAPI.getAnimes()
     .then(results => {
       setAnimes(results.data);
-      console.log(" Result GetAnimes() :  ", results.data)
+      // console.log(" Result GetAnimes() :  ", results.data)
     })
-    console.log(" Result GetAnimes() :  ")
+    // console.log(" Result GetAnimes() :  ")
   }, []);
   
   return (

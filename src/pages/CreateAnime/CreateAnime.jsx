@@ -92,9 +92,10 @@ function CreateAnime() {
 
     return (
         <div>
-            <h1> Create Anime </h1> 
+            <h1 className="text-white"> Create Anime </h1> 
+            <br></br>
             <form onSubmit={submitHandler} action="/createEpisode">
-                <div className="mb-3">
+                <div className="mb-3 text-white">
                     <label htmlFor="exampleInputPassword1" className="form-label" >Anime Name</label>
                     <input type="text" className="form-control" id="exampleInputEmail1" onChange={handleName} value={name}/>
                 </div>
@@ -106,20 +107,20 @@ function CreateAnime() {
           color: 'red',
         }}>{errorMessage}</span>
                 </div> */}
-                <div className="mb-3">
+                <div className="mb-3 text-white">
                     
                     <label htmlFor="exampleInputPassword1" className="form-label"> Anime Image </label>
-                    <input type="file" onChange={(e) => handleFileUpload(e)}  />
+                    <input  type="file" onChange={(e) => handleFileUpload(e)}  />
                 </div>
                 {/* <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Num Episode</label>
                     <input type="number" className="form-control" id="exampleInputEmail1" onChange={handleEpisodes} value={episodes}/>
                 </div> */}
-                <div className="mb-3">
+                <div className="mb-3 text-white">
                     <label htmlFor="exampleInputPassword1" className="form-label">Description</label>
                     <input type="text" className="form-control" id="exampleInputEmail1" onChange={handleDescription} value={description}/>
                 </div>
-                <div className="mb-3">
+                <div className="mb-3 text-white">
                     <label htmlFor="exampleInputPassword1" className="form-label">Category</label>
                     <input type="text" className="form-control" id="exampleInputEmail1" onChange={handleCategory} value={category}/>
                 </div>
@@ -129,9 +130,15 @@ function CreateAnime() {
                 </div> */}
                 
                 <button type="submit" className="btn btn-primary">Submit</button>
+                
             </form> 
         </div>
     )
 }
 
 export default CreateAnime;
+
+
+
+
+
