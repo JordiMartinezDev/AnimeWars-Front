@@ -87,7 +87,11 @@ function Episode() {
             }) : <ShowComments comment={episodeId}></ShowComments>} */}
 
             <h3>{(commentsArray?.length > 0) && commentsArray?.map(comment => {
-                return <p>{comment.text}</p>
+                {
+                    console.log("COMMENTBYUSEROBJ:  ",comment.commentByUser)
+                }
+                return <p>{comment.text + " BY " + comment.commentByUser[0].username}</p>
+                
             }) }</h3>
 
             <form onSubmit={submitComment}>
