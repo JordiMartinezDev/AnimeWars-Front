@@ -10,6 +10,8 @@ function FilterByCategoryPage(){
     // const [filt, setFilt] = useState([])
     const {category} = useParams();
     const [animeArray,setAnimeArray] = useState([])
+    const [tempUser, setTempUser] = useState([]);
+    const [userFollowArray,setUserFollowArray] = useState([])
 
     useEffect(() => {
         // console.log("ENTRA AQUI");
@@ -26,6 +28,28 @@ function FilterByCategoryPage(){
         
         })
         }, [category]);
+
+
+    useEffect(()=>{
+        animeAPI.getUser(tempUser)
+        .then(result => {
+            setUserFollowArray(result.data.followedByAnimeId)
+            console.log("FOLLOWING ANIME ARRAYS(ANIMELIST PAGE): ", userFollowArray)
+            animeAPI.getAnimes()
+        .then(results => {
+            //console.log("LISTA ANIMES", results.data);
+            setAnimeArray(results.data);
+        })
+        .catch((err) => {
+            console.log(err);
+            console.log("ERROR, USER NOT LOGGED AND TRYING to SEE ANIMELIST")
+        })
+            
+        })
+            .catch(e => {
+            console.log(e)
+            })
+    },[tempUser])
 
 // function ShonenHandler(){
 //     filt.filter((anime) => {
@@ -55,7 +79,7 @@ function FilterByCategoryPage(){
                 <div key={anime._id}>
                 {<p>{anime.name}</p>}
 
-                     {/* <ShowAnime anime={anime}></ShowAnime> */}
+                     <ShowAnime anime={anime} userFollowArray={userFollowArray}></ShowAnime>
                 
                 </div>
 

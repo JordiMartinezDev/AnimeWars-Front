@@ -72,7 +72,7 @@ function Episode() {
 
     return (
         <div>
-            <h1> One Episode Page</h1>
+            <h1 className='text-white'>Video</h1>
             <ReactPlayer
             url={episode.episodeUrl}
             width="100%"
@@ -82,8 +82,10 @@ function Episode() {
             light="https://i.stack.imgur.com/zw9Iz.png"
             />
 
-            <h2> Comments </h2>
-            
+
+            <br></br><br></br>
+            <h1 className='text-white'>Comments</h1>
+
             {/* {episode.commentId?
             episode.commentId.map(comment => {
                 <ShowComments comment={comment.text} key={ comment}></ShowComments>

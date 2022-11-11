@@ -18,8 +18,6 @@ function HomePage() {
   
   return (
     <div>
-      <h1>Home asdsds</h1>
-
       <SeeMyAnimeList></SeeMyAnimeList>
       <div> 
         {/* {animes.map(anime => <ShowAnime anime={anime} key={anime._id}/>)}  */}
