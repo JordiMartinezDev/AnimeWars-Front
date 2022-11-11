@@ -1,7 +1,13 @@
-.LoginPage{
+/* .LoginPage{
     padding-top: 20vh;
     max-width: 50vh;
     text-align: center;
     margin: auto;
     padding-bottom: 20vh;
-}
+} */
+
+.input{
+    margin: auto;
+    text-align: center;
+  }
+  

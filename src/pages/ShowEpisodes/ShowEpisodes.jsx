@@ -45,24 +45,29 @@ function ShowEpisodes(){
 
     return (
         <div className="container text-center">
-            <h1>Episodes List</h1>
-            <img src={animes.animeImage } width="500px" />
-        <div className="row row-cols-5">
+        <br></br><br></br>
+            <h1 className='text-white'>Episodes List</h1>
+            <br></br>
+            <img src={animes.animeImage } width="500px" height="300px"/>
+            <br></br><br></br><br></br><br></br>
+        <div className="row">
+       
                {/* //Aqui haremos un map de los animes que el usuario tenga en su lista
         //y los mostraremos en una card(lo de la card hacerlo con bootstrap en ShowAnime.jsx)) */}
-        {console.log("ANIMES ENTRA AQUI??", animes)}
+        {/* {console.log("ANIMES ENTRA AQUI??", animes)} */}
         
         {animes.episodes && animes.episodes.map(episode => {
             return (
-                <div key={episode._id}>
+                <div key={episode._id} className="col-sm-6 col-lg-4 col-xl-2">
                { console.log("Aqui imprime el episodio", episode)}
-                <Link to={"/episodes/" + episode._id}>
+                <Link to={"/episodes/" + episode._id}></Link>
                 <ShowEpisode episode={episode}></ShowEpisode>
-                </Link>
+                
                 </div>
             )
         })}
         </div>
+        <br></br><br></br>
         </div>
     );
 }

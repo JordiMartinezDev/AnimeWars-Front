@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-
+import './ShowComments.css';
 function ShowComments({ commentText,commentUserName,userProfileImage,updateComments,commentId }) {
     
     useEffect(() => {
@@ -11,17 +11,17 @@ function ShowComments({ commentText,commentUserName,userProfileImage,updateComme
 
     return (
         <div>
-            <div className="card" /*style="width: 18rem;"*/>
-                <img className="card-img-top" src={ userProfileImage}/>
-                <div className="card-body">
-                    <h3 className="card-title">{commentUserName }</h3>
-                    <h8 className="card-text"> {commentText}</h8>
-    
+            <div className="input card"  style={{width: "50%"}}>
+                <img className="card-img-top" src={ userProfileImage} alt=""/>
+                <div className="card-body" >
+                    <h3 className="card-title">Username:{commentUserName }</h3>
+                    <p className="card-text"> {commentText}</p>
             </div>
             </div> 
            
-
+            <br></br>
         </div>
+
     )
 }
 

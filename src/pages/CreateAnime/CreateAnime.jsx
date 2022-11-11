@@ -5,6 +5,7 @@ import animeAPI from '../../services/animeAPI.service';
 import {Navigate, useNavigate} from 'react-router-dom';
 import validator from 'validator';
 import Validator from 'validator';
+import "./CreateAnime.css"
 
 
 
@@ -92,12 +93,13 @@ function CreateAnime() {
 
     return (
         <div>
+            <br/>
             <h1 className="text-white"> Create Anime </h1> 
             <br></br>
             <form onSubmit={submitHandler} action="/createEpisode">
                 <div className="mb-3 text-white">
-                    <label htmlFor="exampleInputPassword1" className="form-label" >Anime Name</label>
-                    <input type="text" className="form-control" id="exampleInputEmail1" onChange={handleName} value={name}/>
+                    <label htmlFor="exampleInputPassword1" className="form-label" >Anime Name</label> 
+                    <input type="text" className="input form-control" id="exampleInputEmail1" onChange={handleName} value={name} style={{width: "40%"}}/>
                 </div>
                 {/* <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Link</label>
@@ -118,11 +120,11 @@ function CreateAnime() {
                 </div> */}
                 <div className="mb-3 text-white">
                     <label htmlFor="exampleInputPassword1" className="form-label">Description</label>
-                    <input type="text" className="form-control" id="exampleInputEmail1" onChange={handleDescription} value={description}/>
+                    <input type="text" className="input form-control" id="exampleInputEmail1" onChange={handleDescription} value={description} style={{width: "40%"}}/>
                 </div>
                 <div className="mb-3 text-white">
                     <label htmlFor="exampleInputPassword1" className="form-label">Category</label>
-                    <input type="text" className="form-control" id="exampleInputEmail1" onChange={handleCategory} value={category}/>
+                    <input type="text" className="input form-control" id="exampleInputEmail1" onChange={handleCategory} value={category} style={{width: "40%"}}/>
                 </div>
                 {/* <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Followers</label>

@@ -69,20 +69,21 @@ function ShowAnime(props) {
     }
 
     return (
-        <>
-        <div className="col">
-        <div className="card-group">
-                <div className="fondoCard card">
+        <div>
+        <div /*className="col"*/>
+        <div className="text-center card-group">
+                <div className="fondoCard card w-100">
                 <Link to={"/animes/" + anime._id}>
                         
-        <img src={anime.animeImage} className="tamanoImage card-img-top" alt={anime.name} />
+        <img src={anime.animeImage} className="tamanoImage card-img-top w-100" alt={anime.name} />
+        </Link>
         <div className="textoLink card-body">
-            <h5 className="card-title textoLink">Name: {anime.name}</h5>
-            <p className="card-text textoLink">Description: {anime.description}</p>
-            <p className="card-text textoLink">Genre: {anime.category}</p>
+            <h3 className="card-title textoLink">{anime.name}</h3>
+            {/* <p className="card-text textoLink">Description: {anime.description}</p>
+            <p className="card-text textoLink">Genre: {anime.category}</p> */}
             {/* <p className="card-text">{anime.episodes}</p> */}
         </div>
-            </Link>
+            
         </div>
         </div>
       
@@ -92,7 +93,7 @@ function ShowAnime(props) {
             {!(showFollowButton==false)&&(follow ? <button onClick={handleLike}> Unfollow</button> : <button onClick={handleLike}> Follow</button>)}
             
             <br></br><br></br><br></br>
-        </>
+        </div>
     );
 }
 
