@@ -90,7 +90,7 @@ function ShowAnime(props) {
         </div>
         
             
-            {!(showFollowButton==false)&&(follow ? <button onClick={handleLike}> Unfollow</button> : <button onClick={handleLike}> Follow</button>)}
+            {!(showFollowButton==false)&&(follow ? <button className="btn btn-danger" onClick={handleLike}> Unfollow</button> : <button className="btn btn-primary" onClick={handleLike}> Follow</button>)}
             
             <br></br><br></br><br></br>
         </div>

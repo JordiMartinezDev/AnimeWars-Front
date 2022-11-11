@@ -121,18 +121,10 @@ function ProfileAnimeCreatedBox () {
 
     return (
         <div>
-            <h1>Hola desde component ProfileAnimeCreatedBox</h1>
-            <div className="card" >
-                <img src="..." class="card-img-top" alt="..." width="200px"/>
-                <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" className="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
+            
             {console.log("IS ADMIN????? ", dbUser?.isAdmin)}
             {(dbUser?.isAdmin)&&<Link to={"/admin/panel"}>
-                <button> Admin Panel </button>
+                <button className="btn btn-primary"> Admin Panel </button>
             </Link>}
             
             <h2>Animes user follows</h2>
