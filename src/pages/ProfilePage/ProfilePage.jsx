@@ -68,15 +68,17 @@ function ProfilePage() {
       
       {/* <p>{user?.username}</p> */}
       {/* <img src={user?.profileImg} alt="Profile Image of CurentUser" /> */}
-      <div>
-        <img className="fotoPerfil" src={profileImg} alt="AW" /> 
-        <p className="nomUsuari">{username}</p>
-      </div>
-       
-      {/* <img src={user?.backgroundImage} alt="Background Image of CurrentUser" /> */}
-      <Link to="/editProfileImg/:userId">Edit profile</Link>
-      <div> 
-        <button className="boto btn btn-primary"  ><Link className="dropdown-item" to="/createEpisode/:userId">Uploated Episode</Link></button>
+      <div className="cartaPrfil">
+        <div>
+          <img className="fotoPerfil" src={profileImg} alt="AW" /> 
+          <p className="nomUsuari">{username}</p>
+        </div>
+        
+        {/* <img src={user?.backgroundImage} alt="Background Image of CurrentUser" /> */}
+        <Link className="linkCreate" to="/editProfileImg/:userId">Edit profile</Link>
+        <div> 
+          <button className="boto btn btn-primary"  ><Link className="dropdown-item" to="/createEpisode/:userId">Upload Episode</Link></button>
+        </div>
       </div>
        
       

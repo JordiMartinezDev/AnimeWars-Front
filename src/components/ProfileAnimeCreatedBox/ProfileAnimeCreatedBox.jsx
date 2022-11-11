@@ -20,6 +20,7 @@ function ProfileAnimeCreatedBox () {
     const [animes, setAnimes] = useState()
     const [userFollowArray, setUserFollowArray] = useState([])
     const [dbUser,setDbUser] = useState()
+    const [deleteCount, setDeleteCount] = useState(0);
 
     const [uploadedEpisodes,setUploadedEpisodes] = useState([])
     const {user} = useContext(AuthContext)
@@ -73,7 +74,7 @@ function ProfileAnimeCreatedBox () {
         .catch(e=>console.log(e))
             getUserFromDb()
 
-    }, [user])
+    }, [user,deleteCount,userFollowArray])
     
     
 
@@ -106,6 +107,12 @@ function ProfileAnimeCreatedBox () {
     }
     function handleDelete(episodeId) {
         console.log("WANT TO DELETE THIS ID ------> ", episodeId)
+        animeAPI.deleteEpisode(episodeId)
+            .then(result=> {
+            console.log("done")
+            })
+            .catch(e => console.log(e))
+        setDeleteCount(deleteCount+1)
     }
 
     function getUserFromDb() {
@@ -134,13 +141,15 @@ function ProfileAnimeCreatedBox () {
             <br></br>
             <div className="row ">
             {animes?.map(anime => {
-            return(
+                return (
+                    
                 <div key={anime._id} className="col-sm-6 col-lg-4 col-xl-2">
                 <ShowAnime anime={anime} userFollowArray={ userFollowArray} showFollowButton={false}></ShowAnime>
                 </div>
             )
-            
             })}
+                { console.log("ARRAY de USERFOLLOWARRAY ANIMES!! ",userFollowArray) }
+                    
             </div>
             </div>
 

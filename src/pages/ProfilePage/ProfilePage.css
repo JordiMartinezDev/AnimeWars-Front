@@ -1,8 +1,28 @@
 .fotoPerfil{
     max-width: 12%;
-    border-radius: 50%
+    border-radius: 50%;
+    margin-right: 80%; 
+    margin-top: 3%;
 }
 .boto{
     background-color: rgb(88, 6, 6);
     border: none;
+    margin-right: 80%;
+    border-radius: 50%;
+    padding: 2%;
+    margin-top: 2%;
+    
+}
+.nomUsuari{
+    color:white;
+    font-size: 170%;
+    margin-right: 80%;
+    margin-top: 2%;
+     
+}
+.linkCreate{
+    margin-right: 80%;
+    font-style: normal;
+     
+    
 }
