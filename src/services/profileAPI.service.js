@@ -11,9 +11,9 @@ class ProfileApiService {
     return axios.get (apiUrl + "/profile/" + user);
   }
 
-  getUserss(){
-    return axios.get(apiUrl + "/usuaris");
-  }
+  // getUserss(){
+  //   return axios.get(apiUrl + "/foto");
+  // }
   //en el profile page quant lacridis posa devariable lo uqe guardis a la variable 
   
 }
