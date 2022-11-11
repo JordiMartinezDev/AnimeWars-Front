@@ -12,8 +12,11 @@ import Episode from '../Episode/Episode';
 function ShowEpisodes(){
 
     const [animes, setAnimes] = useState({});
-    const {animeId} = useParams();
-    
+
+    const [dbUser,setDbUser] = useState()
+    const { animeId } = useParams();
+    const { user } = useContext(AuthContext)
+    const [deleteCount, setDeleteCount] = useState(0);
     // const [episodes, setEpisodes] = useState([]);
     // const [temporal, setTemporal] = useState([]);
     
@@ -41,7 +44,39 @@ function ShowEpisodes(){
         .catch((err) => {
             console.log("DA ERROR", err);
         })
+        
     }, [])
+    useEffect(() => {
+        animeAPI.getAnime(animeId)
+        .then(results => {
+            console.log("LISTA EPISODES ENTRA AQUI?", results.data);
+            setAnimes(results.data);
+        })
+        .catch((err) => {
+            console.log("DA ERROR", err);
+        })
+        getUserFromDb()
+    }, [user,deleteCount])
+
+    function getUserFromDb() {
+        animeAPI.getUser(user)
+            .then(result => {
+                console.log("RESULT USEr FROM BACK : ", result.data)
+            setDbUser(result.data)
+            })
+        .catch(e=>console.log(e))
+            console.log("cheat",user?._id)
+    }
+
+    function handleDelete(episodeId) {
+        animeAPI.deleteEpisode(episodeId)
+            .then(result=> {
+            console.log("done")
+            })
+            .catch(e => console.log(e))
+        setDeleteCount(deleteCount+1)
+        
+    }
 
     return (
         <div className="container text-center">
@@ -59,9 +94,9 @@ function ShowEpisodes(){
         {animes.episodes && animes.episodes.map(episode => {
             return (
                 <div key={episode._id} className="col-sm-6 col-lg-4 col-xl-2">
-               { console.log("Aqui imprime el episodio", episode)}
-                <Link to={"/episodes/" + episode._id}></Link>
-                <ShowEpisode episode={episode}></ShowEpisode>
+               { console.log("Aqui imprime el episodio", dbUser?.isAdmin)}
+                    
+                <ShowEpisode episode={episode} uploadedByUser={dbUser?.isAdmin} handleDelete={ handleDelete}></ShowEpisode>
                 
                 </div>
             )
