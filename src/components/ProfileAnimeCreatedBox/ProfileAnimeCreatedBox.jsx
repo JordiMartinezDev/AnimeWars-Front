@@ -127,19 +127,38 @@ function ProfileAnimeCreatedBox () {
                 <button className="btn btn-primary"> Admin Panel </button>
             </Link>}
             
-            <h2>Animes user follows</h2>
-            {animes?.map(anime => {
-            
-            return <ShowAnime anime={anime} userFollowArray={ userFollowArray} showFollowButton={false}></ShowAnime>
-            
-            })}
 
-            <h2>Episodes Uploaded By User</h2>
-            {episodes?.map(episode => {
-            
-                return <ShowEpisode episode={episode} uploadedByUser={true} handleDelete={ handleDelete}></ShowEpisode>
+            <div className="container text-center">
+            <br></br><br></br>
+            <h2 className='text-white'>Animes follows</h2>
+            <br></br>
+            <div className="row ">
+            {animes?.map(anime => {
+            return(
+                <div key={anime._id} className="col-sm-6 col-lg-4 col-xl-2">
+                <ShowAnime anime={anime} userFollowArray={ userFollowArray} showFollowButton={false}></ShowAnime>
+                </div>
+            )
             
             })}
+            </div>
+            </div>
+
+            <div className="container text-center">
+            <br></br><br></br>
+            <h2 className='text-white'>Episodes Uploaded By User</h2>
+            <br></br>
+            <div className="row ">
+            {episodes?.map(episode => {
+                return(
+                    <div key={episode._id} className="col-sm-6 col-lg-4 col-xl-2">
+                    <ShowEpisode episode={episode} uploadedByUser={true} handleDelete={ handleDelete}></ShowEpisode>
+                    </div>
+                ) 
+                
+            })}
+            </div>
+            </div>
             
 
         </div>

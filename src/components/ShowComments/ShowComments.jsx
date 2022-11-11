@@ -10,12 +10,12 @@ function ShowComments({ commentText,commentUserName,userProfileImage,updateComme
 
 
     return (
-        <div>
+        <div className="cajaComentario">
             <div className="input card"  style={{width: "50%"}}>
-                <img className="card-img-top" src={ userProfileImage} alt=""/>
+                {/* <img className="card-img-top" src={ userProfileImage} alt=""/> */}
                 <div className="card-body" >
-                    <h3 className="card-title">Username:{commentUserName }</h3>
-                    <p className="card-text"> {commentText}</p>
+                    <h3 className="h3 card-title">{commentUserName }:</h3>
+                    <p className="comentario card-text"> {commentText}</p>
             </div>
             </div> 
            

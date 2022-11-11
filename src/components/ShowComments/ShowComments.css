@@ -1,3 +1,17 @@
 .input{
     margin: auto;
 }
+
+.h3{
+    text-align: left;
+}
+
+.comentario{
+    
+    text-align: left;
+    font-size: 0.63em;
+}
+
+.cajaComentario{
+    background-color: black;
+}

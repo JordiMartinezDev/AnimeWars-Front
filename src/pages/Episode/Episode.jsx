@@ -72,7 +72,9 @@ function Episode() {
 
     return (
         <div>
+        <br></br>
             <h1 className='text-white'>Video</h1>
+            <br></br>
             <ReactPlayer
             url={episode.episodeUrl}
             width="100%"
