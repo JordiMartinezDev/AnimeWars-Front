@@ -12,7 +12,7 @@ function ShowAnime(props) {
     
     const { user} = useContext(AuthContext);  
 
-    const {anime,userFollowArray} = props;
+    const {anime,userFollowArray,showFollowButton} = props;
     const [animeL, setAnime] = useState([]);
     const [follow, setFollow] = useState(false);
     // const {anime} = props;
@@ -27,9 +27,7 @@ function ShowAnime(props) {
             userFollows()
     },[])
 
-    useEffect(() => {
-        
-    })
+    
     function handleLike() {
         
         const uploadData = new FormData();
@@ -50,6 +48,7 @@ function ShowAnime(props) {
             .catch(e => console.log(e))
         
         setFollow(!follow)
+        
     }
     
     function userFollows() {
@@ -88,7 +87,7 @@ function ShowAnime(props) {
         </div>
             </div>
             
-            {follow ? <button onClick={handleLike}> Unfollow</button> : <button onClick={handleLike}> Follow</button>}
+            {!(showFollowButton==false)&&(follow ? <button onClick={handleLike}> Unfollow</button> : <button onClick={handleLike}> Follow</button>)}
             
         </>
     );

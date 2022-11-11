@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom';
 
 function ShowEpisode(props) {
-    const {episode} = props;
+    const {episode,uploadedByUser} = props;
 
     return (
         <div className="col">
@@ -11,7 +11,7 @@ function ShowEpisode(props) {
         {console.log("AQUI AUN TENEMOS EL ID",episode._id)}
 
         <img src={episode.episodeImg} className="card-img-top" alt={episode.name} />
-
+                        {(uploadedByUser===true&&<button>Delete</button>) }
         </Link>
 
         <div className="card-body">
