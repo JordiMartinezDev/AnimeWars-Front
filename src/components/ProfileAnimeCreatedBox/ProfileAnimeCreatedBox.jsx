@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
 import './ProfileAnimeCreatedBox.css';
 import { useState } from "react";
-import {Navigate, useNavigate} from 'react-router-dom';
+import {Link, Navigate, useNavigate} from 'react-router-dom';
 // import Validator from 'validator'
 import { useEffect } from 'react';
 import Validator from 'validator';
@@ -18,7 +18,8 @@ function ProfileAnimeCreatedBox () {
     
     const [episodes, setEpisodes] = useState()
     const [animes, setAnimes] = useState()
-    const [userFollowArray,setUserFollowArray] = useState([])
+    const [userFollowArray, setUserFollowArray] = useState([])
+    const [dbUser,setDbUser] = useState()
 
     const [uploadedEpisodes,setUploadedEpisodes] = useState([])
     const {user} = useContext(AuthContext)
@@ -47,6 +48,7 @@ function ProfileAnimeCreatedBox () {
             })
         .catch(e=>console.log(e))
 
+        getUserFromDb()
 
     }, [])
     
@@ -67,10 +69,9 @@ function ProfileAnimeCreatedBox () {
             .then(results => {
                 setAnimes(results.data)
                 checkFollowedAnimes()
-                console.log("ANIME from DB: ", animes)
             })
         .catch(e=>console.log(e))
-
+            getUserFromDb()
 
     }, [user])
     
@@ -81,25 +82,19 @@ function ProfileAnimeCreatedBox () {
     {
         const tempArray = []
         episodes.map(episode => {
-           console.log("EPISODE ID TO COMPARE: ",episode.uploadedByUserId)
             if (episode.uploadedByUserId == user._id) {
-                console.log("pushing episode", episode)
                 tempArray.push(episode)
             } 
         })
         
         setEpisodes(tempArray)
         
-        console.log("USER IS : ", user)
-        console.log("Uploaded Episodes: ")
     }
     function checkFollowedAnimes() {
         const tempArray = []
         const tempIdArray = []
         animes.map(anime => {
-           console.log("EPISODE ID TO COMPARE: ",anime.followedUsers)
             if (anime.followedUsers == user._id) {
-                console.log("pushing episode", anime)
                 tempArray.push(anime)
                 tempIdArray.push(anime._id)
             } 
@@ -107,11 +102,20 @@ function ProfileAnimeCreatedBox () {
         setUserFollowArray(tempIdArray)
         setAnimes(tempArray)
         
-        console.log("USER IS : ", user)
         
     }
     function handleDelete(episodeId) {
         console.log("WANT TO DELETE THIS ID ------> ", episodeId)
+    }
+
+    function getUserFromDb() {
+        animeAPI.getUser(user)
+            .then(result => {
+                console.log("RESULT USEr FROM BACK : ", result.data)
+            setDbUser(result.data)
+            })
+        .catch(e=>console.log(e))
+            console.log("cheat",user._id)
     }
    
 
@@ -126,7 +130,11 @@ function ProfileAnimeCreatedBox () {
                     <a href="#" className="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
-
+            {console.log("IS ADMIN????? ", dbUser?.isAdmin)}
+            {(dbUser?.isAdmin)&&<Link to={"/admin/panel"}>
+                <button> Admin Panel </button>
+            </Link>}
+            
             <h2>Animes user follows</h2>
             {animes?.map(anime => {
             
