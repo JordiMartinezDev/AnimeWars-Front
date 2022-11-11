@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import animeAPI from '../../services/animeAPI.service';
 import ShowAnime from '../ShowAnime/ShowAnime';
+import "./SearchBar.css"
 
 
 function SearchBar() {
@@ -57,24 +58,30 @@ function SearchBar() {
 
     return (
         <div>
-            <h1 className="text-white">Search Bar here</h1>
+        <br></br>
+            <h1 className="text-white">Search Bar</h1>
+            <br></br>
+            <br></br>
             <form>
                 <div className='search-wrapper'>
                     <div className="form-group">
-                        <input className='form-control' type="text" placeholder='Search..' value={key} onChange={e => setKey(e.target.value)} />
+                        <input className='input form-control' type="text" placeholder='Search..' value={key} onChange={e => setKey(e.target.value)} style={{width: "50%"}} />
                     </div>
+                    <br></br>
                     {searchResult.map(anime => {
                         return (
                             
                             <Link key={ anime._id} to={"/animes/" + anime._id}>
                             {/* <Link to={<ShowAnime anime={anime} ></ShowAnime>}>  */}
                                 <img src={anime.animeImage} name='animeImage' alt="anime" width={150}/>
-                                   
+                                
                             </Link>   
                             
                         )
                         
                         // IMAGES AND LINKS TO EACH ANIME'S PAGE
+
+                        
 
                     })}
                 </div>

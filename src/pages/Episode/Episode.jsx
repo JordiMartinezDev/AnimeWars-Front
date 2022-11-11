@@ -98,16 +98,17 @@ function Episode() {
                     console.log("COMMENTBYUSEROBJ:  ",comment.commentByUser)
                 }
                 return <ShowComments commentText={comment.text} commentUserName={comment?.commentByUser[0].username} userProfileImage={comment?.commentByUser[0].profileImg }></ShowComments>
-                
-            }) }</h3>
+            }) }
+            </h3>
+            <br></br>
 
             <form onSubmit={submitComment}>
 
-            <textarea onChange={handleComment} id="exampleFormControlTextArea" rows="3" value={newComment} placeholder="Write comment..."/>
-
+            <textarea onChange={handleComment} id="exampleFormControlTextArea" rows="3" value={newComment} placeholder="Write comment..." style={{width: "40%"}}/>
             <button type="submit" className="btn btn-primary">Comment</button>
-                
+            <br></br>
             </form>
+            <br></br><br></br><br></br>
         </div>
         
     )

@@ -69,15 +69,17 @@ function FilterByCategoryPage(){
 
     return (
         <div className="container text-center">
-        <h1>Filter by category</h1>
-        <div className="row row-cols-5">
+        <br></br><br></br>
+        <h1 className="text-white">Filter by category</h1>
+        <br></br>
+        <div className="row">
                {/* //Aqui haremos un map de los animes que el usuario tenga en su lista
         //y los mostraremos en una card(lo de la card hacerlo con bootstrap en ShowAnime.jsx)) */}
             {/* {console.log("ANIMES ENTRA AQUI??", animeArray)} */}
          {animeArray.map(anime => {         
             return (
-                <div key={anime._id}>
-                {<p>{anime.name}</p>}
+                <div key={anime._id} className="col-sm-6 col-lg-4 col-xl-2">
+                {/* {<p>{anime.name}</p>} */}
 
                      <ShowAnime anime={anime} userFollowArray={userFollowArray}></ShowAnime>
                 

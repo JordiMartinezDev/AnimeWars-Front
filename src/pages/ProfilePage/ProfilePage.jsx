@@ -32,6 +32,7 @@ function ProfilePage() {
       
     <ProfileAnimeCreatedBox></ProfileAnimeCreatedBox>
     
+    <button className="createEpisode btn btn-success"><Link to="/createEpisode/frnvnknvkrvr">Add Episode</Link></button>
   </div>
    );
   

@@ -46,16 +46,17 @@ function LoginPage() {
 
   return (
     <div className="LoginPage">
+    <br></br><br></br><br></br><br></br>
       <h1 className="text-white">Login</h1>
       <br></br>
       <form onSubmit={handleLoginSubmit}>
       <div class="mb-3 text-white" >
         <label for="exampleInputEmail1" class="form-label">Email:</label>
-        <input type="email" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value={email} onChange={handleEmail} />
+        <input className="input" type="email" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value={email} onChange={handleEmail} style={{width: "40%"}}/>
       </div>
       <div class="mb-3 text-white">
         <label for="exampleInputPassword1" class="form-label">Password:</label>
-        <input type="password" id="exampleInputPassword1" name="password" value={password} onChange={handlePassword}/>
+        <input className="input" type="password" id="exampleInputPassword1" name="password" value={password} onChange={handlePassword} style={{width: "40%"}}/>
       </div>
         <button class="btn btn-primary" type="submit">Login</button>
       </form>

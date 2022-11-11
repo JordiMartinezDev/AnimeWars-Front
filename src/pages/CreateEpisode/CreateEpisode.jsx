@@ -6,6 +6,7 @@ import {Navigate, useNavigate} from 'react-router-dom';
 import Validator from 'validator'
 import { useEffect,useContext } from 'react';
 import { AuthContext } from '../../context/auth.context';
+import "./CreateEpisode.css"
 
 
 
@@ -111,38 +112,34 @@ function CreateEpisode() {
 
     return (
         <div className='CreateEpisode'>
-            <h1 className="text-white"> Create Episode Form Page</h1>
+            <br></br>
+            <h1 className="text-white"> Create Episode</h1>
+            <br></br>
            
             <form onSubmit={submitHandler} action="/createEpisode" encType="multipart/form-data">
-                
-    
-                <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name='anime' onChange={handleAnime}>
+                <select className="input form-select form-select-lg mb-3" aria-label=".form-select-lg example" name='anime' onChange={handleAnime} style={{width: "40%"}}>
                     {/* Aqui hem de fer un map, i que cada opccio sigui un anime ja creat */}
                     <option selected>Animes</option> 
                     {animeNames.map(anime =>{
                         return ( <option value={anime.name} >{anime.name}</option>);
                     })
-                    }
-                    
-                    
+                    }     
                 </select>
+
                 <div className="mb-3">
-                    <label htmlFor="exampleInputPassword1" className="form-label">Link</label>
-                    <input type="text" className="form-control" id="exampleInputEmail1" onChange={handlAnimeUrl} value={animeUrl} />
+                    <label htmlFor="exampleInputPassword1" className="text-white form-label">Link</label>
+                    <input type="text" className="input form-control" id="exampleInputEmail1" onChange={handlAnimeUrl} value={animeUrl} style={{width: "40%"}}/>
                     <span style={{ fontWeight: 'bold',color: 'red', }}>{errorMessage}</span>
                 </div>
                 <div className="mb-3">
-                    
-                    <label htmlFor="exampleInputPassword1" className="form-label"> Episode Image </label>
-                    <input type="file" onChange={(e) => handleFileUpload(e)}  />
+                    <p className='text-white'>Episode Image</p>
+                    <label htmlFor="exampleInputPassword1" className="centrar input text-white form-label"></label>
+                    <input className="centrar input text-white" type="file" onChange={(e) => handleFileUpload(e)} style={{width: "40%"}} />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="exampleInputPassword1" className="form-label">Num Episode</label>
-                    <input type="number" className="form-control" id="exampleInputEmail1" onChange={handleEpisodes} value={episodes}/>
+                    <label htmlFor="exampleInputPassword1" className="text-white form-label">Num Episode</label>
+                    <input type="number" className="input form-control" id="exampleInputEmail1" onChange={handleEpisodes} value={episodes} style={{width: "40%"}}/>
                 </div>
-               
-               
-              
                 <button type="submit" className="btn btn-primary">Submit</button>
               
             </form> 
@@ -152,7 +149,3 @@ function CreateEpisode() {
 }
 
 export default CreateEpisode;
-
-{/* <div class="alert alert-primary" role="alert">
-  A simple primary alert—check it out!
-</div> */}

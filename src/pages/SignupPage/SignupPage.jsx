@@ -52,21 +52,23 @@ function SignupPage() {
 
   return (
     <div className="SignupPage">
+    <br></br><br></br>
+    <br></br><br></br>
       <h1 className="text-white">Sign Up</h1>
       <br></br>
       <form onSubmit={handleSignupSubmit}>
       <div className="mb-3 text-white" >
         <label for="exampleInputEmail1" className="form-label">Email address :</label>
-        <input type="email" /*class="form-control"*/ id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value={email} onChange={handleEmail} />
+        <input type="email" /*class="form-control"*/ id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value={email} onChange={handleEmail} style={{width: "40%"}}/>
         <div id="emailHelp" className="form-text text-white">We'll never share your email with anyone else.</div>
       </div>
       <div className="mb-3 text-white">
         <label for="exampleInputPassword1" className="form-label">Password:</label>
-        <input type="password" /*class="form-control"*/ id="exampleInputPassword1" name="password" value={password} onChange={handlePassword}/>
+        <input type="password" /*class="form-control"*/ id="exampleInputPassword1" name="password" value={password} onChange={handlePassword} style={{width: "40%"}}/>
       </div>
       <div className="mb-3 form-check text-white"> 
         <label className="form-check-label text-white" for="exampleCheck1">Userame: </label>
-        <input type="text" name="username" value={username} onChange={handleUserName} />
+        <input type="text" name="username" value={username} onChange={handleUserName} style={{width: "40%"}} />
         </div>
         <button className="btn btn-primary" type="submit">Sign Up</button>
       </form>

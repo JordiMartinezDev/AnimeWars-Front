@@ -71,14 +71,15 @@ function SeeMyAnimeList(){
 
     return (
         <div className="container text-center">
+        <br></br><br></br>
         <h1 className='text-white'>Animes</h1>
         <br></br>
-        <div className="row row-cols-5">
+        <div className="row ">
                {/* //Aqui haremos un map de los animes que el usuario tenga en su lista
         //y los mostraremos en una card(lo de la card hacerlo con bootstrap en ShowAnime.jsx)) */}
          {animes.map(anime => {         
             return (
-                <div key={anime._id}>
+                <div key={anime._id} className="col-sm-6 col-lg-4 col-xl-2">
 
                    {<ShowAnime anime={anime} userFollowArray={ userFollowArray}></ShowAnime>} 
                 

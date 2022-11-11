@@ -23,13 +23,13 @@ import ShowAnime from "./components/ShowAnime/ShowAnime";
 import FilterByCategoryPage from "./pages/FilterByCategoryPage/FilterByCategoryPage";
 import {AuthProviderWrapper} from "./context/auth.context";
 import AdminPage from "./pages/AdminPage/AdminPage";
-import foter from "./components/foter/foter";
-
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
+      
       
       <Routes>
 
@@ -56,7 +56,7 @@ function App() {
       </Routes>
       
       {/* recordatori de posa Is Private a tot en lo que el redme ho posa */}
-      <foter></foter>
+      <Footer/>
     </div>
   );
 }
