@@ -42,6 +42,7 @@ function App() {
         <Route path="/searchPage" element={<SearchPage></SearchPage>}/>
         <Route path="/editProfileImg/:userId" element={<EditProfileImg></EditProfileImg>} /> 
         {<Route path="/createAnime/:userId" element={<CreateAnime></CreateAnime>} />}
+        <Route path="/admin/panel" element={<AdminPage></AdminPage>}/> 
         
 
         {/*Para probar */} 
