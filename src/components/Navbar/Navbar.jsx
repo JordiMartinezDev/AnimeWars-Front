@@ -1,15 +1,36 @@
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../context/auth.context";
 import lupa from "../../assets/lupa.png";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
+import { useState } from "react";
+import ProfileAPI from "../../services/profileAPI.service";
+
+
 //bootstrap
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider's `value` prop
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const { isLoggedIn, user, logOutUser, isLoading, profileImg } = useContext(AuthContext);
+  const [img, setImg]=useState("")
+  //usefecttttt igual que profile img
+  //Sino va s'ha de canviar això
+  //////////////////////////////////////////////
+   useEffect(()=>{
+    if(isLoading)return
+    setImg(profileImg)
+   
+   
+    },[profileImg])
+
+  
+
+  
+
+
+
   return (
     // <nav>
       /* <Link to="/">
@@ -73,7 +94,7 @@ function Navbar() {
                     </Link>
                     <div className="dropdown">
                     <button className="buttonProfile bg-dark btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" />
+                      <img src={img} style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" />
                     </button>
                       <ul className="buttonProfile dropdown-menu text-white bg-dark dropdown-menu">
                         {isLoggedIn ?

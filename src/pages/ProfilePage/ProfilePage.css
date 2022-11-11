@@ -1,4 +1,8 @@
-.ImgProfile{
-width: 10%;
-
+.fotoPerfil{
+    max-width: 12%;
+    border-radius: 50%
+}
+.boto{
+    background-color: rgb(88, 6, 6);
+    border: none;
 }

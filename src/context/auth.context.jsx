@@ -7,6 +7,11 @@ function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
+  const [profileImg, setProfileImg]= useState(null)
+
+  function updateImg(image){
+    setProfileImg(image)
+  }
 
   const storeToken = (token) => {
     localStorage.setItem("authToken", token);
@@ -37,6 +42,7 @@ function AuthProviderWrapper(props) {
           setIsLoggedIn(true);
           setIsLoading(false);
           setUser(user);
+          setProfileImg(user.profileImg)
         })
         .catch((error) => {
           // If the server sends an error response (invalid token) ❌
@@ -78,6 +84,8 @@ function AuthProviderWrapper(props) {
         storeToken,
         authenticateUser,
         logOutUser,
+        updateImg,
+        profileImg
       }}
     >
       {props.children}
